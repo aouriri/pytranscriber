@@ -15,7 +15,7 @@ st.sidebar.markdown(
 
 
 st.sidebar.markdown(
-        "Fellowship site: University of California - San Diego (UCSD) Library, Project name: [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)"
+        "Fellowship site: University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), Project name: [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)"
 )
 
 st.write("mp3 to wav converter")
