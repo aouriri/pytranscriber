@@ -1,5 +1,5 @@
 import streamlit as st
-import spacy-streamlit
+import spacy_streamlit
 import wave, contextlib, math, time
 import speech_recognition as sr
 import ffmpeg
