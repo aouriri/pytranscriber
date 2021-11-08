@@ -10,9 +10,12 @@ st.sidebar.markdown(
 )
 
 st.sidebar.markdown(
-    "Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow."
-    
-    "Fellowship site: University of California - San Diego (UCSD) Library , Project name: [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)"
+    "Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow."    
+)
+
+
+st.sidebar.markdown(
+        "Fellowship site: University of California - San Diego (UCSD) Library, Project name: [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)"
 )
 
 st.write("mp3 to wav converter")
