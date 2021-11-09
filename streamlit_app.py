@@ -11,10 +11,10 @@ st.sidebar.markdown(
 
 page = st.sidebar.selectbox('Select page',
   ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
-if page == 'Audio Conversion':
-  # Display the conversion content here
-else:
-  # Display the transcription content here
+    if page == 'Audio Conversion':
+     # Display the conversion content here
+    else:
+    # Display the transcription content here
 
 st.sidebar.markdown(
     "Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow."    
