@@ -18,7 +18,8 @@ st.set_page_config(
     "Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow."    
             
     "**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)"
-
+        }
+)
 
 st.sidebar.markdown("-----------------------------------")
 page = st.sidebar.selectbox('Select page',
