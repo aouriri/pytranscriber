@@ -19,6 +19,8 @@ st.set_page_config(
 )
 
 st.sidebar.markdown("-----------------------------------")
+
+# elseif statement?
 page = st.sidebar.selectbox('Select page',
   ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
 if page == 'Audio Conversion':
@@ -28,7 +30,7 @@ if page == 'Audio Conversion':
     mp3 = st.file_uploader("Upload mp3 file.", type=["mp3"])
 else:
     # Display the transcription content here
-    st.title("Speech to Text converter")
+    st.title("Speech to Text Converter")
 
 st.sidebar.markdown("-----------------------------------")
 st.sidebar.markdown(
@@ -37,6 +39,6 @@ st.sidebar.markdown(
 
 
 st.sidebar.markdown(
-        "**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)"
+    "**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)"
 )
 
