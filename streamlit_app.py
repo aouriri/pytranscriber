@@ -2,6 +2,8 @@
 
 import streamlit as st
 
+app_formal_name = "Audio Conversion//Speech to Text//NER"
+
 # EDIT config
 st.set_page_config(
         page_title="pytranscriber",
@@ -9,11 +11,14 @@ st.set_page_config(
         initial_sidebar_state="auto",
         menu_items={
           'Report a bug': "https://www.extremelycoolapp.com/bug",
-          'About': "# This is a header. This is an *extremely* cool app!" 
-        }
-    )
+          'About':  f"[{app_formal_name}](https://github.com/aouriri/pytranscriber) "
+    f"converts mp3 files to wav (with the option to download), transcribes that audio file to text using the [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) Python library. "
+    f"The text can the be copied to be used elsewhere **or** processed using [spaCy](https://github.com/explosion/spacy-streamlit). "
 
-app_formal_name = "Audio Conversion//Speech to Text//NER"
+    "Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow."    
+            
+    "**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)"
+
 
 st.sidebar.markdown("-----------------------------------")
 page = st.sidebar.selectbox('Select page',
