@@ -9,6 +9,13 @@ st.sidebar.markdown(
     f"The text can the be copied to be used elsewhere **or** processed using [spaCy](https://github.com/explosion/spacy-streamlit). "
 )
 
+page = st.sidebar.selectbox('Select page',
+  ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
+if page == 'Audio Conversion':
+  # Display the conversion content here
+else:
+  # Display the transcription content here
+
 st.sidebar.markdown(
     "Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow."    
 )
