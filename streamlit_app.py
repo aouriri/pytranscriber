@@ -11,10 +11,14 @@ st.sidebar.markdown(
 
 page = st.sidebar.selectbox('Select page',
   ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
-    if page == 'Audio Conversion':
-     # Display the conversion content here
-    else:
+if page == 'Audio Conversion':
+    # Display the conversion content here
+    st.write("mp3 to wav converter")
+    
+    mp3 = st.file_uploader("Upload mp3 file.", type=["mp3"])
+else:
     # Display the transcription content here
+    st.write("Speech to Text converter")
 
 st.sidebar.markdown(
     "Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow."    
@@ -27,8 +31,4 @@ st.sidebar.markdown(
 
 # based on Fanilo Andrianasolo's "Convert a MIDI file to WAV" Streamlit app
 
-st.write("mp3 to wav converter")
-
-st.write("Speech to Text converter")
-
-mp3 = st.file_uploader("Upload mp3 file.", type=["mp3"])
+st.title('My First Streamlit App')
