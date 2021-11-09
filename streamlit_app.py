@@ -2,6 +2,17 @@
 
 import streamlit as st
 
+# EDIT config
+st.set_page_config(
+        page_title="pytranscriber",
+        page_icon=":arrows_clockwise:",
+        initial_sidebar_state="auto",
+        menu_items={
+          'Report a bug': "https://www.extremelycoolapp.com/bug",
+          'About': "# This is a header. This is an *extremely* cool app!" 
+        }
+    )
+
 app_formal_name = "Audio Conversion//Speech to Text//NER"
 
 st.sidebar.markdown("-----------------------------------")
@@ -9,12 +20,12 @@ page = st.sidebar.selectbox('Select page',
   ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
 if page == 'Audio Conversion':
     # Display the conversion content here
-    st.write("mp3 to wav converter")
+    st.title("mp3 to wav converter")
     
     mp3 = st.file_uploader("Upload mp3 file.", type=["mp3"])
 else:
     # Display the transcription content here
-    st.write("Speech to Text converter")
+    st.title("Speech to Text converter")
 
 st.sidebar.markdown("-----------------------------------")
 st.sidebar.markdown(
