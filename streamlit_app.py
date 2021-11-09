@@ -4,6 +4,7 @@ import streamlit as st
 
 app_formal_name = "Audio Conversion//Speech to Text//NER"
 
+st.sidebar.markdown("-----------------------------------")
 page = st.sidebar.selectbox('Select page',
   ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
 if page == 'Audio Conversion':
@@ -28,6 +29,6 @@ st.sidebar.markdown(
 
 
 st.sidebar.markdown(
-        "Fellowship site: University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), Project name: [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)"
+        "**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)"
 )
 
