@@ -1,5 +1,7 @@
 beautifulsoup4
 requests
 spacy
-
 streamlit
+spacy-streamlit
+speech-recognition
+ffmpeg
