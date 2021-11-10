@@ -37,9 +37,8 @@ else:
     st.title("Named Entity Recognition")
     
     
-    Example using the components provided by spacy-streamlit in an existing app.
+    st.text("Example using the components provided by spacy-streamlit in an existing app.")
     
-    Prerequisites:
     python -m spacy download en_core_web_sm
     
         
