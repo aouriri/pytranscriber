@@ -1,6 +1,6 @@
 beautifulsoup4
 requests
-spacy
-streamlit
+spacy>=3.0.0
+streamlit>=0.86.0
 speech-recognition
 ffmpeg
