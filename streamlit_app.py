@@ -34,6 +34,8 @@ elif page == 'Speech to Text Transcription':
 else:
     # Display the NER content here
     st.title("Named Entity Recognition")
+    
+    streamlit run https://raw.githubusercontent.com/aouriri/pytranscriber/main/spacyNER_code.py
 
 st.sidebar.markdown("-----------------------------------")
 st.sidebar.markdown(
