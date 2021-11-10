@@ -29,11 +29,11 @@ if page == 'Audio Conversion':
     
     mp3 = st.file_uploader("Upload mp3 file.", type=["mp3"])
 elif page == 'Speech to Text Transcription':
-    # Display the speech to text content here
+    # Display the transcription content here
     st.title("Speech to Text Transcription")
 else:
-    # Display the transcription content here
-    st.title("Speech to Text Converter")
+    # Display the NER content here
+    st.title("Named Entity Recognition")
 
 st.sidebar.markdown("-----------------------------------")
 st.sidebar.markdown(
