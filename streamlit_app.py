@@ -28,6 +28,9 @@ if page == 'Audio Conversion':
     st.title("mp3 to wav converter")
     
     mp3 = st.file_uploader("Upload mp3 file.", type=["mp3"])
+elif page == 'Speech to Text Transcription':
+    # Display the speech to text content here
+    st.title("Speech to Text Transcription")
 else:
     # Display the transcription content here
     st.title("Speech to Text Converter")
