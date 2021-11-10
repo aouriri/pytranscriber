@@ -49,7 +49,7 @@ else:
     show_table=False,
     title="Persons, dates and locations",
 )
-st.text(f"Analyzed using spaCy model {spacy_model}")
+    st.markdown(f"Analyzed using spaCy model {spacy_model}")
 
 st.sidebar.markdown("-----------------------------------")
 st.sidebar.markdown(
