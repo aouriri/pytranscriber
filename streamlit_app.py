@@ -1,6 +1,7 @@
 # based on Fanilo Andrianasolo's "Convert a MIDI file to WAV" Streamlit app
 
 import streamlit as st
+import spacy
 import spacy_streamlit
 
 app_formal_name = "Audio Conversion//Speech to Text//NER"
