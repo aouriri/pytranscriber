@@ -2,7 +2,6 @@
 
 import streamlit as st
 import spacy_streamlit
-import en_core_web_sm
 
 app_formal_name = "Audio Conversion//Speech to Text//NER"
 
