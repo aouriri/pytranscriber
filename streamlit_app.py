@@ -32,20 +32,6 @@ if page == 'Audio Conversion':
 # Display the conversion content here
     st.title(":arrows_clockwise: mp3 to wav converter")
     sess = load_session()
-	
-    def download_from_URL(url: str, sess: requests.Session) -> bytes:
-        user_agent = {"User-agent": "bot"}
-        r_page = sess.get(url, headers=user_agent)
-        soup = BeautifulSoup(r_page.content, "html.parser")
-        link = soup.find(lambda tag: tag.name == "a" and tag.has_attr("download"))
-    if link is None:
-        st.error(f"No mp3 file found on page '{url}'")
-        raise ValueError(f"No mp3 file found on page '{url}'")
-
-    url_mp3_file = "http.*\.mp3"
-    r_mp3_file = sess.get(url_midi_file, headers=user_agent)
-    
-    return r_mp3_file.content
         
     uploaded_mp3 = st.file_uploader("Upload mp3 file", type=["mp3"])
     mp3_link = st.text_input(
