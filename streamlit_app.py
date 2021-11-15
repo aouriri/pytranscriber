@@ -39,9 +39,6 @@ if page == 'Audio Conversion':
         )
         run_button = st.button('Convert!')
 	
-    @st.cache(
-	allow_output_mutation=True
-    )
     def load_session():
 	return requests.Session()
     
