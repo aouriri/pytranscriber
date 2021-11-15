@@ -30,7 +30,6 @@ page = st.sidebar.selectbox('Select page',
   ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
 if page == 'Audio Conversion':
     # Display the conversion content here
-    st.title("mp3 to wav converter")
     
     def download_from_site(url: str, sess: requests.Session) -> bytes:
         user_agent = {"User-agent": "bot"}
