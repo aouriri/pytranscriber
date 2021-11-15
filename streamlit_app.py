@@ -25,6 +25,9 @@ st.set_page_config(
 )
 
 st.sidebar.markdown("-----------------------------------")
+
+page = st.sidebar.selectbox('Select page',
+  ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
 st.sidebar.markdown("-----------------------------------")
 st.sidebar.markdown(
     'Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow.'    
@@ -33,8 +36,6 @@ st.sidebar.markdown(
     '**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)'
 )
 
-page = st.sidebar.selectbox('Select page',
-  ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
 if page == 'Audio Conversion':
 # Display the conversion content here
     st.title(":arrows_clockwise: mp3 to wav converter")
