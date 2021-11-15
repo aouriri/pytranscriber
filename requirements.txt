@@ -4,3 +4,5 @@ streamlit>=0.86.0
 spacy>=3.0.0,<4.0.0
 spacy-streamlit
 pandas
+scipy
+soundfile
