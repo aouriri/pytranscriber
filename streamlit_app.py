@@ -33,9 +33,7 @@ if page == 'Audio Conversion':
     st.title(":arrows_clockwise: mp3 to wav converter")
         
     uploaded_mp3 = st.file_uploader("Upload mp3 file", type=["mp3"])
-    mp3_link = st.text_input(
-        "Or input URL", "https://libraries.ucsd.edu/farmworkermovement/media/oral_history/music/Huelga%203%20Cesar%20Chavez.mp3"
-    )
+    mp3_link = st.text_input("Or input URL")
         
     run_button = st.button('Convert!')
 
