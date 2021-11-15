@@ -68,14 +68,14 @@ if page == 'Audio Conversion':
         
         mp3_file = None
         
-      #  if uploaded_file is None:
-      #      if "http.*\.mp3" not in mp3_link:
-      #          st.error("Make sure your URL is of type 'http.*\.mp3'")
-      #          st.stop()
-      #      with st.spinner(f"Downloading mp3 file from {mp3_link}"):
-      #          mp3_file = io.BytesIO(download_from_bitmidi(mp3_link, sess))
-      #  else:
-      #      mp3_file = uploaded_mp3
+        if uploaded_file is None:
+            if "http.*\.mp3" not in mp3_link:
+                st.error("Make sure your URL is of type 'http.*\.mp3'")
+                st.stop()
+            with st.spinner(f"Downloading mp3 file from {mp3_link}"):
+                mp3_file = io.BytesIO(download_from_bitmidi(mp3_link, sess))
+        else:
+            mp3_file = uploaded_mp3
             
       #  st.markdown("---")
         
