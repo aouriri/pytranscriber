@@ -38,9 +38,9 @@ if page == 'Audio Conversion':
         r_page = sess.get(url, headers=user_agent)
         soup = BeautifulSoup(r_page.content, "html.parser")
         link = soup.find(lambda tag: tag.name == "a" and tag.has_attr("download"))
-	if link is None:
-        	st.error(f"No mp3 file found on page '{url}'")
-        	raise ValueError(f"No mp3 file found on page '{url}'")
+		if link is None:
+        		st.error(f"No mp3 file found on page '{url}'")
+        		raise ValueError(f"No mp3 file found on page '{url}'")
 
 	url_mp3_file = "http.*\.mp3"
 	r_mp3_file = sess.get(url_midi_file, headers=user_agent)
