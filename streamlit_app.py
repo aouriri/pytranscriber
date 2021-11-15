@@ -66,6 +66,16 @@ else:
             show_table=False,
             title="Persons, Places and Other Things",
     )
-
-
+    
+    with st.expander("Entity label explanation"):
+            st.write("""
+                PERSON:      People, including fictional.
+NORP:        Nationalities or religious or political groups.
+ORG:         Companies, agencies, institutions, etc.
+GPE:         Countries, cities, states.
+LOC:         Non-GPE locations, mountain ranges, bodies of water.
+LAW:         Named documents made into laws.
+DATE:        Absolute or relative dates or periods.
+     """)
+    
     st.text(f'Analyzed using spaCy model {spacy_model}.')
