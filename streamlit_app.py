@@ -30,19 +30,6 @@ page = st.sidebar.selectbox('Select page',
   ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
 if page == 'Audio Conversion':
     # Display the conversion content here
-    
-    def download_from_site(url: str, sess: requests.Session) -> bytes:
-        user_agent = {"User-agent": "bot"}
-        r_page = sess.get(url, headers=user_agent)
-        soup = BeautifulSoup(r_page.content, "html.parser")
-        link = soup.find(lambda tag: tag.name == "a" and tag.has_attr("download"))
-        if link is None:
-            st.error(f"No mp3 file found on page '{url}'")
-            raise ValueError(f"No mp3 file found on page '{url}'")
-
-        url_mp3_file = "http.*\.mp3"
-        r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
-        return r_mp3_file.content
         
     def main():
         st.title(":arrows_clockwise: mp3 to wav converter")
