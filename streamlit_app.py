@@ -30,27 +30,13 @@ page = st.sidebar.selectbox('Select page',
   ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
 if page == 'Audio Conversion':
     # Display the conversion content here
-        
-    def main():
         st.title(":arrows_clockwise: mp3 to wav converter")
-        sess = load_session()
         
         uploaded_mp3 = st.file_uploader("Upload mp3 file.", type=["mp3"])
         mp3_link = st.text_input(
             "Or input URL", "https://libraries.ucsd.edu/farmworkermovement/media/oral_history/music/Huelga%203%20Cesar%20Chavez.mp3"
         )
         
-        mp3_file = None
-        
-        if uploaded_file is None:
-            if "http.*\.mp3" not in mp3_link:
-                st.error("Make sure your URL is of type 'http.*\.mp3'")
-                st.stop()
-            with st.spinner(f"Downloading mp3 file from {mp3_link}"):
-                mp3_file = io.BytesIO(download_from_bitmidi(mp3_link, sess))
-        else:
-            mp3_file = uploaded_mp3
-            
       #  st.markdown("---")
         
       #  with st.spinner(f"Transcribing to wav"): # update to mp3 to wav code
