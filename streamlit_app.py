@@ -39,19 +39,6 @@ if page == 'Audio Conversion':
         )
         
         run_button = st.button('Convert!')
-	
-            @st.cache(allow_output_mutation=True)
-            def load_session():
-                return requests.Session()
-    
-            def has_download_attr(tag):
-                return tag.has_attr("download")
-    
-            @st.cache(
-                hash_funcs={requests.Session: id},
-                allow_output_mutation=True,
-                suppress_st_warning=True,
-            )
     
             def download_from_URL(url: str, sess: requests.Session) -> bytes:
                 user_agent = {"User-agent": "bot"}
