@@ -37,32 +37,34 @@ if page == 'Audio Conversion':
         mp3_link = st.text_input(
             "Or input URL", "https://libraries.ucsd.edu/farmworkermovement/media/oral_history/music/Huelga%203%20Cesar%20Chavez.mp3"
         )
+        
         run_button = st.button('Convert!')
 	
-    def load_session():
-	return requests.Session()
+            @st.cache(allow_output_mutation=True)
+            def load_session():
+                return requests.Session()
     
-    def has_download_attr(tag):
-	return tag.has_attr("download")
+            def has_download_attr(tag):
+                return tag.has_attr("download")
     
-    @st.cache(
-        hash_funcs={requests.Session: id},
-        allow_output_mutation=True,
-        suppress_st_warning=True,
-    )
+            @st.cache(
+                hash_funcs={requests.Session: id},
+                allow_output_mutation=True,
+                suppress_st_warning=True,
+            )
     
-    def download_from_URL(url: str, sess: requests.Session) -> bytes:
-        user_agent = {"User-agent": "bot"}
-        r_page = sess.get(url, headers=user_agent)
-        soup = BeautifulSoup(r_page.content, "html.parser")
-        link = soup.find(lambda tag: tag.name == "a" and tag.has_attr("download"))
-    if link is None:
-        st.error(f"No mp3 file found on page '{url}'")
-        raise ValueError(f"No mp3 file found on page '{url}'")
+            def download_from_URL(url: str, sess: requests.Session) -> bytes:
+                user_agent = {"User-agent": "bot"}
+                r_page = sess.get(url, headers=user_agent)
+                soup = BeautifulSoup(r_page.content, "html.parser")
+                link = soup.find(lambda tag: tag.name == "a" and tag.has_attr("download"))
+                if link is None:
+                    st.error(f"No mp3 file found on page '{url}'")
+                    raise ValueError(f"No mp3 file found on page '{url}'")
 
-    url_mp3_file = "http.*\.mp3"
-    r_mp3_file = sess.get(url_midi_file, headers=user_agent)
-    return r_mp3_file.content
+                url_mp3_file = "http.*\.mp3"
+                r_mp3_file = sess.get(url_midi_file, headers=user_agent)
+                return r_mp3_file.content
 
 elif page == 'Speech to Text Transcription':
     # Display the transcription content here
