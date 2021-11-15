@@ -25,6 +25,13 @@ st.set_page_config(
 )
 
 st.sidebar.markdown("-----------------------------------")
+st.sidebar.markdown("-----------------------------------")
+st.sidebar.markdown(
+    'Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow.'    
+)
+st.sidebar.markdown(
+    '**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)'
+)
 
 page = st.sidebar.selectbox('Select page',
   ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
@@ -38,35 +45,26 @@ if page == 'Audio Conversion':
     run_button = st.button('Convert!')
 
 elif page == 'Speech to Text Transcription':
-    # Display the transcription content here
+# Display the transcription content here
     st.title('Speech to Text Transcription')
+        
 else:
-    # Display the NER content here
+# Display the NER content here
     # Example using the components provided by spacy-streamlit in an existing app.
     st.title('Named Entity Recognition')
            
     DEFAULT_TEXT = """Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002."""
     
     spacy_model = "en_core_web_sm"
-    text = st.text_area("Text to analyze (default text can be used but, i'm okay with change)", DEFAULT_TEXT, height=200)
+    text = st.text_area("Text to analyze (Default text can be used but, I'm okay with change.)", DEFAULT_TEXT, height=200)
     doc = spacy_streamlit.process_text(spacy_model, text)
 
     spacy_streamlit.visualize_ner(
             doc,
-            labels=["PERSON", "DATE", "GPE", "ORG", "NORP"],
+            labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
             show_table=False,
-            title="Persons, dates and locations",
+            title="Persons, Places and Other Things",
     )
 
 
     st.text(f'Analyzed using spaCy model {spacy_model}.')
-        
-st.sidebar.markdown("-----------------------------------")
-st.sidebar.markdown(
-    'Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow.'    
-)
-
-
-st.sidebar.markdown(
-    '**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)'
-)
