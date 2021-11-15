@@ -90,7 +90,7 @@ if page == 'Audio Conversion':
             wavfile.write(virtualfile, 44100, audio_data)
             
         st.audio(virtualfile)
-        st.markdown("Download the audio by selecting the vertical ellipsis and selecting "Download" or by right-clicking on the media player")
+        st.markdown("Download the audio by selecting the vertical ellipsis and selecting 'Download' or by right-clicking on the media player")
         
 elif page == 'Speech to Text Transcription':
     # Display the transcription content here
