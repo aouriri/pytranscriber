@@ -8,7 +8,7 @@ import spacy
 import spacy_streamlit
 from bs4 import BeautifulSoup
 
-app_formal_name = "Audio Conversion//Speech to Text//NER"
+app_formal_name = 'Audio Conversion//Speech to Text//NER'
 
 # EDIT config
 st.set_page_config(
@@ -32,27 +32,27 @@ if page == 'Audio Conversion':
 # Display the conversion content here
     st.title(":arrows_clockwise: mp3 to wav converter")
         
-    uploaded_mp3 = st.file_uploader("Upload mp3 file", type=["mp3"])
-    mp3_link = st.text_input("Or input URL")
+    uploaded_mp3 = st.file_uploader('Upload mp3 file', type=["mp3"])
+    mp3_link = st.text_input('Or input URL')
         
     run_button = st.button('Convert!')
 
 elif page == 'Speech to Text Transcription':
     # Display the transcription content here
-    st.title("Speech to Text Transcription")
+    st.title('Speech to Text Transcription')
 else:
     # Display the NER content here
-    st.title("Named Entity Recognition")
+    st.title('Named Entity Recognition')
     
-    st.text("Example using the components provided by spacy-streamlit in an existing app.")    
+    st.text('Example using the components provided by spacy-streamlit in an existing app.')    
        
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 st.sidebar.markdown("-----------------------------------")
 st.sidebar.markdown(
-    "Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow."    
+    'Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow.'    
 )
 
 
 st.sidebar.markdown(
-    "**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)"
+    '**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)'
 )
