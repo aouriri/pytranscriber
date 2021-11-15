@@ -31,7 +31,6 @@ page = st.sidebar.selectbox('Select page',
 if page == 'Audio Conversion':
 # Display the conversion content here
     st.title(":arrows_clockwise: mp3 to wav converter")
-    sess = load_session()
         
     uploaded_mp3 = st.file_uploader("Upload mp3 file", type=["mp3"])
     mp3_link = st.text_input(
