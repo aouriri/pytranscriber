@@ -68,29 +68,29 @@ if page == 'Audio Conversion':
         
         mp3_file = None
         
-        if uploaded_file is None:
-            if "http.*\.mp3" not in mp3_link:
-                st.error("Make sure your URL is of type 'http.*\.mp3'")
-                st.stop()
-            with st.spinner(f"Downloading mp3 file from {mp3_link}"):
-                mp3_file = io.BytesIO(download_from_bitmidi(mp3_link, sess))
-        else:
-            mp3_file = uploaded_mp3
+      #  if uploaded_file is None:
+      #      if "http.*\.mp3" not in mp3_link:
+      #          st.error("Make sure your URL is of type 'http.*\.mp3'")
+      #          st.stop()
+      #      with st.spinner(f"Downloading mp3 file from {mp3_link}"):
+      #          mp3_file = io.BytesIO(download_from_bitmidi(mp3_link, sess))
+      #  else:
+      #      mp3_file = uploaded_mp3
             
-        st.markdown("---")
+      #  st.markdown("---")
         
-        with st.spinner(f"Transcribing to wav"): # update to mp3 to wav code
-            midi_data = pretty_midi.PrettyMIDI(midi_file)
-            audio_data = midi_data.fluidsynth()
-            audio_data = np.int16(
-                audio_data / np.max(np.abs(audio_data)) * 32767 * 0.9
-            )  # -- Normalize for 16 bit audio https://github.com/jkanner/streamlit-audio/blob/main/helper.py
+      #  with st.spinner(f"Transcribing to wav"): # update to mp3 to wav code
+      #      midi_data = pretty_midi.PrettyMIDI(midi_file)
+      #      audio_data = midi_data.fluidsynth()
+      #      audio_data = np.int16(
+      #          audio_data / np.max(np.abs(audio_data)) * 32767 * 0.9
+      #      )  # -- Normalize for 16 bit audio https://github.com/jkanner/streamlit-audio/blob/main/helper.py
             
-            virtualfile = io.BytesIO()
-            wavfile.write(virtualfile, 44100, audio_data)
+      #      virtualfile = io.BytesIO()
+      #      wavfile.write(virtualfile, 44100, audio_data)
             
-        st.audio(virtualfile)
-        st.markdown("Download the audio by selecting the vertical ellipsis and selecting 'Download' or by right-clicking on the media player")
+      #  st.audio(virtualfile)
+      #  st.markdown("Download the audio by selecting the vertical ellipsis and selecting 'Download' or by right-clicking on the media player")
         
 elif page == 'Speech to Text Transcription':
     # Display the transcription content here
