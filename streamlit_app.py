@@ -16,7 +16,7 @@ st.set_page_config(
         page_icon=":arrows_clockwise:",
         initial_sidebar_state="auto",
         menu_items={
-          'Report a bug': "https://www.extremelycoolapp.com/bug",
+          'Report a bug': "https://github.com/aouriri/pytranscriber/issues",
           'About':  f"[{app_formal_name}](https://github.com/aouriri/pytranscriber) "
     f"converts mp3 files to wav (with the option to download), transcribes that audio file to text using the [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) Python library. "
     f"The text can the be copied to be used elsewhere **or** processed using [spaCy](https://github.com/explosion/spacy-streamlit). "
