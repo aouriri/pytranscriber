@@ -57,11 +57,6 @@ else:
             show_table=False,
             title="Persons, dates and locations",
     )
-    st.markdown(| 'Syntax | Description' |
-                | ----------- | ----------- |
-                        | 'Header | Title' |
-| 'Paragraph | Text' |
-               )
 
 
     st.text(f'Analyzed using spaCy model {spacy_model}.')
