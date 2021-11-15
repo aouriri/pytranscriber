@@ -35,9 +35,9 @@ if page == 'Audio Conversion':
     
     # mp3 = st.file_uploader("Upload mp3 file.", type=["mp3"])
         
-    @st.cache(allow_output_mutation=True)
-    def load_session():
-	return requests.Session()
+   # @st.cache(allow_output_mutation=True)
+   # def load_session():
+   #	return requests.Session()
 
     def has_download_attr(tag):
 	return tag.has_attr("download")
