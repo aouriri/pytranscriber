@@ -1,5 +1,5 @@
 beautifulsoup4
-requests
+requests>=2.24.0
 streamlit>=0.86.0
 spacy>=3.0.0,<4.0.0
 spacy-streamlit
