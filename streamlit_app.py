@@ -68,12 +68,12 @@ else:
             show_table=False,
             params={"text": doc.text,
                     "ents": [{"start": ent.start_char,
-                    "end": ent.end_char,
-                    "label": ent.label_,
-                    "kb_id": ent.kb_id_,
-                    "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_} 
-                   for ent in doc.ents],
-            "title": "Persons, Places and Other Things"}
+                              "end": ent.end_char,
+                              "label": ent.label_,
+                              "kb_id": ent.kb_id_,
+                              "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_}
+                              for ent in doc.ents],
+                    "title": None}
     )
     with st.expander("Entity label explanation"):
             st.write("""
