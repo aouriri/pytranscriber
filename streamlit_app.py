@@ -61,7 +61,7 @@ else:
     nlp.add_pipe('opentapioca')
     text = st.text_area("Text to analyze (Default text can be used but, I'm okay with change.)", DEFAULT_TEXT, height=200)
     doc = spacy_streamlit.process_text(spacy_model, text)
-    ents = [(ent.text, ent.start_char, ent.end_char, ent.label_, ent.kb_id_) for ent in doc.ents]
+    ent = [(ent.text, ent.start_char, ent.end_char, ent.label_, ent.kb_id_) for ent in doc.ents]
 
     spacy_streamlit.visualize_ner(
             doc,
