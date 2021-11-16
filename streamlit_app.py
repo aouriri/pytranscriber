@@ -73,7 +73,7 @@ else:
                     "kb_id": ent.kb_id_,
                     "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_} 
                    for ent in doc.ents],
-            title="Persons, Places and Other Things"}
+            "title": "Persons, Places and Other Things"}
     )
     with st.expander("Entity label explanation"):
             st.write("""
