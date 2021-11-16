@@ -7,10 +7,10 @@ import streamlit as st
 import spacy
 import spacy_streamlit
 from bs4 import BeautifulSoup
+from spacy import displacy
 
 app_formal_name = 'Audio Conversion//Speech to Text//NER'
 
-# EDIT config
 st.set_page_config(
         page_title="pytranscriber",
         page_icon=":arrows_clockwise:",
@@ -50,7 +50,7 @@ elif page == 'Speech to Text Transcription':
     st.title('Speech to Text Transcription')
         
 else:
-# Display the NER content here
+    # Display the NER content here
     # Example using the components provided by spacy-streamlit in an existing app.
     st.title('Named Entity Recognition')
            
