@@ -67,7 +67,7 @@ else:
             labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
             show_table=False,
             kb_id=ent.kb_id_,
-            kb_url="https://www.wikidata.org/entity/" + ent.kb_id_},
+            kb_url="https://www.wikidata.org/entity/" + ent.kb_id_,
             title="Person, Places and Other Things"
     )
     spacy.displacy.serve(style="ent", manual=True)
