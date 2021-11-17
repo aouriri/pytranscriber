@@ -7,7 +7,7 @@ import streamlit as st
 import spacy
 import spacy_streamlit
 from bs4 import BeautifulSoup
-from spacy import displacy
+from spacy.kb import KnowledgeBase
 
 app_formal_name = 'Audio Conversion//Speech to Text//NER'
 
@@ -57,8 +57,6 @@ else:
     DEFAULT_TEXT = """Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002."""
     
     spacy_model = "en_core_web_sm"
-    nlp = spacy.blank("en")
-    nlp.add_pipe('opentapioca')
     text = st.text_area("Text to analyze (Default text can be used but, I'm okay with change.)", DEFAULT_TEXT, height=200)
     doc = spacy_streamlit.process_text(spacy_model, text)
 
@@ -66,11 +64,8 @@ else:
             doc,
             labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
             show_table=False,
-            kb_id=kb_id_,
-            kb_url="https://www.wikidata.org/entity/" + kb_id_,
             title="Person, Places and Other Things"
     )
-    spacy.displacy.serve(style="ent", manual=True)
     with st.expander("Entity label explanation"):
             st.write("""
                 **PERSON:**      People, including fictional.
