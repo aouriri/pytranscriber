@@ -41,12 +41,12 @@ if page == 'Audio Conversion':
 # based on Fanilo Andrianasolo's "Convert a MIDI file to WAV" Streamlit app
 
     @st.cache(allow_output_mutation=True)
-        def load_session():
-            return requests.Session()
+    def load_session():
+	return requests.Session()
 
 
-        def has_download_attr(tag):
-            return tag.has_attr("download")
+    def has_download_attr(tag):
+	return tag.has_attr("download")
 
 
     @st.cache(
