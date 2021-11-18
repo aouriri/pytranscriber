@@ -4,7 +4,6 @@ import requests
 import streamlit as st
 import spacy
 import spacy_streamlit
-import ffmpeg
 from bs4 import BeautifulSoup
 from spacy.kb import KnowledgeBase
 from os import path
