@@ -40,20 +40,6 @@ if page == 'Audio Conversion':
 # Display the conversion content here
 # based on Fanilo Andrianasolo's "Convert a MIDI file to WAV" Streamlit app
 
-    @st.cache(allow_output_mutation=True)
-
-    return requests.Session()
-
-
-    return tag.has_attr("download")
-
-
-    @st.cache(
-        hash_funcs={requests.Session: id},
-        allow_output_mutation=True,
-        suppress_st_warning=True,
-    )
-
 # find mp3s on website
     def download_from_website(url: str, sess: requests.Session) -> bytes:
         user_agent = {"User-agent": "bot"}
