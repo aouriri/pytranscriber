@@ -49,27 +49,6 @@ if page == 'Audio Conversion':
         mp3_link = st.text_input("Or input mp3 URL")
 
         mp3_file = None
-
-        if uploaded_file is None:
-            if "http.*\.mp3" not in mp3_link:
-                st.error("Make sure your URL is of type 'http.*\.mp3'")
-                st.stop()
-            with st.spinner(f"Downloading mp3 file from {mp3_link}"):
-                midi_file = io.BytesIO(download_from_website(mp3_link, sess))
-        else:
-            mp3_file = uploaded_file
-
-        st.markdown("---")
-
-        with st.spinner(f"Transcribing to wav"):
-
-            sound = AudioSegment.from_mp3(mp3_file)
-
-            virtualfile = io.BytesIO()
-            wavfile.write(virtualfile, 44100, sound)
-
-        st.audio(virtualfile)
-        st.markdown("Download the audio by right-clicking on the media player")
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
