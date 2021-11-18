@@ -41,13 +41,12 @@ if page == 'Audio Conversion':
 # based on Fanilo Andrianasolo's "Convert a MIDI file to WAV" Streamlit app
 
 # st components
-    def main():
-        st.title(":arrows_clockwise: mp3 to wav converter")
+    st.title(":arrows_clockwise: mp3 to wav converter")
 
-        uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-        mp3_link = st.text_input("Or input mp3 URL")
+    uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
+    mp3_link = st.text_input("Or input mp3 URL")
 
-        mp3_file = None
+    mp3_file = None
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
