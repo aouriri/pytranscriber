@@ -40,7 +40,7 @@ if page == 'Audio Conversion':
 # Display the conversion content here
 # based on Fanilo Andrianasolo's "Convert a MIDI file to WAV" Streamlit app
 
-@st.cache(allow_output_mutation=True)
+    @st.cache(allow_output_mutation=True)
 
     return requests.Session()
 
