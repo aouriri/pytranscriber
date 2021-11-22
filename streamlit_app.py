@@ -87,8 +87,8 @@ if page == 'Audio Conversion':
 	sess = load_session()
 
 	if uploaded_file is None:
-        	if "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/" not in audio_link:
-            		st.error("Make sure your URL is of type 'https://library.ucsd.edu/farmworkermovement/media/oral_history/music/<mp3_name>'")
+        	if "https://library.ucsd.edu/farmworkermovement/media/oral_history/" not in audio_link:
+            		st.error("Make sure your URL is of type 'https://library.ucsd.edu/farmworkermovement/media/oral_history/<mp3_name>'")
             		st.stop()
         	with st.spinner(f"Downloading mp3 file from {audio_link}"):
             		mp3_file = io.BytesIO(download_from_website(audio_link, sess))
