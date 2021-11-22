@@ -87,10 +87,10 @@ if page == 'Audio Conversion':
             		st.stop()
         	with st.spinner(f"Downloading mp3 file from {audio_link}"):
             		midi_file = io.BytesIO(download_from_website(audio_link, sess))
-    	else:
-        	mp3_file = uploaded_file
-
-    	st.markdown("---")
+	else:
+		mp3_file = uploaded_file
+			
+	st.markdown("---")
 
     	with st.spinner(f"Transcribing to wav"):
         	# files                                                                       
