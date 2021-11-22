@@ -78,8 +78,8 @@ if page == 'Audio Conversion':
     		audio_link = st.text_input(
         		"Or input URL", "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/HuelgaDVD.mp3"
     		)
-
-    	mp3_file = None
+		
+	mp3_file = None
 
     	if uploaded_file is None:
         	if "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/" not in audio_link:
