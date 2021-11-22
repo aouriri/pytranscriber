@@ -44,19 +44,10 @@ if page == 'Audio Conversion':
 	st.title(":arrows_clockwise: mp3 to wav converter")
 		
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-
-	mp3_file = uploaded_file
-			
-	st.markdown("---")
 	
-	st.spinner(f"Transcribing to wav")
-	audSeg = AudioSegment.from_mp3(mp3_file)
-		
-	virtualfile = io.BytesIO()
-	wavfile.write(virtualfile, 44100, audSeg)
-	
-	st.audio(virtualfile)
-	st.markdown("Download the audio by right-clicking on the media player")
+	def convert_mp3_to_wav(music_file):
+		sound = AudioSegment.from_mp3(music_file)
+		sound.export("music_file.wav",format="wav")
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
