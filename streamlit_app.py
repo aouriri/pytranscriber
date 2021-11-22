@@ -53,6 +53,7 @@ if page == 'Audio Conversion':
 	
 	with st.spinner(f"Transcribing to wav"):
         	# files
+		mp3_file = uploaded_file
 		src = mp3_file
 
 		# convert wav to mp3                                                            
