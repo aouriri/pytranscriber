@@ -91,7 +91,7 @@ if page == 'Audio Conversion':
             		st.error("Make sure your URL is of type 'https://library.ucsd.edu/farmworkermovement/media/oral_history/music/<mp3_name>'")
             		st.stop()
         	with st.spinner(f"Downloading mp3 file from {audio_link}"):
-            		midi_file = io.BytesIO(download_from_website(audio_link, sess))
+            		mp3_file = io.BytesIO(download_from_website(audio_link, sess))
 	else:
 		mp3_file = uploaded_file
 			
