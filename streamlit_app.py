@@ -98,12 +98,12 @@ if page == 'Audio Conversion':
 
 		# convert wav to mp3                                                            
 		audSeg = AudioSegment.from_mp3(mp3_file)
-
-        	virtualfile = io.BytesIO()
-        	wavfile.write(virtualfile, 44100, audSeg)
-
-    	st.audio(virtualfile)
-    	st.markdown("Download the audio by right-clicking on the media player")
+		
+		virtualfile = io.BytesIO()
+		wavfile.write(virtualfile, 44100, audSeg)
+	
+	st.audio(virtualfile)
+	st.markdown("Download the audio by right-clicking on the media player")
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
