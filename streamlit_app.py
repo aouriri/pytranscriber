@@ -55,7 +55,6 @@ if page == 'Audio Conversion':
 		label="Download wav file",
 		data=uploaded_file,
 		file_name="converted_file.wav",
-		mime='audio/wav',
 	)
         
 elif page == 'Speech to Text Transcription':
