@@ -65,7 +65,7 @@ if page == 'Audio Conversion':
 			st.error(f"No mp3 file found on page '{url}'")
 			raise ValueError(f"No mp3 file found on page '{url}'")
 
-		url_mp3_file = "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/" + link["href"] # change URL to request/query other sites, using UCSD FW website as example
+		url_mp3_file = "https://library.ucsd.edu/farmworkermovement/media/oral_history/music" + link["href"] # change URL to request/query other sites, using UCSD FW website as example
 		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
 		return r_mp3_file.content
 
