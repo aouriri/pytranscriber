@@ -53,13 +53,6 @@ if page == 'Audio Conversion':
 		
 	st.text("Preview uploaded file") 
 	st.audio(uploaded_file)
-	
-	st.download_button(
-		label="Download wav file",
-		data=converted,
-		file_name='converted_file.wav',
-		mime='audio/wav',
-	)
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
