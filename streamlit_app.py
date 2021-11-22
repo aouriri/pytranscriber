@@ -69,14 +69,14 @@ if page == 'Audio Conversion':
 		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
 		return r_mp3_file.content
 
-
-    	st.title(":arrows_clockwise: mp3 to wav converter")
-	sess = load_session()
-	
-	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	audio_link = st.text_input(
-		"Or input URL", "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/HuelgaDVD.mp3"
-    	)
+	def main():
+		st.title(":arrows_clockwise: mp3 to wav converter")
+		sess = load_session()
+		
+		uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
+		audio_link = st.text_input(
+			"Or input URL", "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/HuelgaDVD.mp3"
+		)
 		
 	mp3_file = None
 	
