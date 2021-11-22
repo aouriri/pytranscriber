@@ -80,6 +80,7 @@ if page == 'Audio Conversion':
 		
 	mp3_file = None
 	
+	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 	if uploaded_file is None:
         	if "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/" not in audio_link:
             		st.error("Make sure your URL is of type 'https://library.ucsd.edu/farmworkermovement/media/oral_history/music/<mp3_name>'")
