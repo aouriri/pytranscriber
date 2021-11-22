@@ -52,8 +52,7 @@ if page == 'Audio Conversion':
 	#	sound = AudioSegment.from_mp3(uploaded_file)
 	#	sound.export("/output/path/file.wav", format="wav")
 
-  	subprocess.call(['ffmpeg', '-i', uploaded_file,
-                   '/output/file.wav'])
+	subprocess.call(['ffmpeg', '-i', uploaded_file, '/output/file.wav'])
 		
 	st.text("Preview uploaded file") 
 	st.audio(uploaded_file)
