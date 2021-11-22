@@ -49,8 +49,8 @@ if page == 'Audio Conversion':
 			
 	st.markdown("---")
 	
-	st.spinner(f"Transcribing to wav"):
-		audSeg = AudioSegment.from_mp3(mp3_file)
+	st.spinner(f"Transcribing to wav")
+	audSeg = AudioSegment.from_mp3(mp3_file)
 		
 	virtualfile = io.BytesIO()
 	wavfile.write(virtualfile, 44100, audSeg)
