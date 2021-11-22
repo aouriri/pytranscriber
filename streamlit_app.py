@@ -51,7 +51,11 @@ if page == 'Audio Conversion':
 		sound = AudioSegment.from_mp3(uploaded_file)
 		sound.export("/output/path/file.wav", format="wav")
 	
-	st.text("Preview uploaded file.") 
+	audio_data = uploaded_file
+	virtualfile = io.BytesIO()
+        wavfile.write(uploaded_file, 44100, audio_data)
+	
+	st.text("Preview uploaded file") 
 	st.audio(uploaded_file)
 	
 	st.download_button(
