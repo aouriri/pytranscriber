@@ -41,27 +41,19 @@ if page == 'Audio Conversion':
 # based on Fanilo Andrianasolo's "Convert a MIDI file to WAV" Streamlit app
 
 # NOTE: adjust requests/URL sections to point toward page(s) of interest
-
-	def main():
-		st.title(":arrows_clockwise: mp3 to wav converter")
+	st.title(":arrows_clockwise: mp3 to wav converter")
 		
-		uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
+	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 
-		mp3_file = uploaded_file
+	mp3_file = uploaded_file
 			
 	st.markdown("---")
 	
-	with st.spinner(f"Transcribing to wav"):
-        	# files
-		uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-		mp3_file = uploaded_file
-		src = mp3_file
-
-		# convert wav to mp3                                                            
+	st.spinner(f"Transcribing to wav"):
 		audSeg = AudioSegment.from_mp3(mp3_file)
 		
-		virtualfile = io.BytesIO()
-		wavfile.write(virtualfile, 44100, audSeg)
+	virtualfile = io.BytesIO()
+	wavfile.write(virtualfile, 44100, audSeg)
 	
 	st.audio(virtualfile)
 	st.markdown("Download the audio by right-clicking on the media player")
