@@ -53,7 +53,7 @@ if page == 'Audio Conversion':
 	
 	audio_data = uploaded_file
 	virtualfile = io.BytesIO()
-        wavfile.write(uploaded_file, 44100, audio_data)
+	wavfile.write(uploaded_file, 44100, audio_data)
 	
 	st.text("Preview uploaded file") 
 	st.audio(uploaded_file)
