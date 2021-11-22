@@ -82,7 +82,7 @@ if page == 'Audio Conversion':
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 	audio_link = st.text_input(
-			"Or input URL", "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/HuelgaDVD.mp3"
+			"Or input URL"
 		)
 	sess = load_session()
 
