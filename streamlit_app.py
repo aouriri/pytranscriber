@@ -45,10 +45,17 @@ if page == 'Audio Conversion':
 		
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 	
-	def convert_mp3_to_wav(music_file):
-		convfile = "converted_file.wav"
+	def convert_mp3_to_wav(uploaded_file):
 		sound = AudioSegment.from_mp3(uploaded_file)
-		sound.export(convfile, format="wav")
+		sound.export("converted_file.wav", format="wav")
+	
+	st.audio(make_audio_file(uploaded_file), format='audio/wav')
+	
+	st.download_button(
+		label="Download wav file",
+		data=,
+		mime=None,
+	)
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
