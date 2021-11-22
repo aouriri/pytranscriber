@@ -91,9 +91,9 @@ if page == 'Audio Conversion':
 		mp3_file = uploaded_file
 			
 	st.markdown("---")
-
-    	with st.spinner(f"Transcribing to wav"):
-        	# files                                                                       
+	
+	with st.spinner(f"Transcribing to wav"):
+        	# files
 		src = mp3_file
 
 		# convert wav to mp3                                                            
