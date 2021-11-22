@@ -47,9 +47,9 @@ if page == 'Audio Conversion':
 	
 	mp3_file = None
 	
-	# def convert_mp3_to_wav(uploaded_file):
-	#	sound = AudioSegment.from_mp3(uploaded_file)
-	#	sound.export("converted_file.wav", format="wav")
+	def convert_mp3_to_wav(uploaded_file):
+		sound = AudioSegment.from_mp3(uploaded_file)
+		sound.export("/output/path/file.wav", format="wav")
 	
 	st.audio(uploaded_file)
 	
