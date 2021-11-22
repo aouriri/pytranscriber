@@ -40,50 +40,69 @@ if page == 'Audio Conversion':
 # Display the conversion content here
 # based on Fanilo Andrianasolo's "Convert a MIDI file to WAV" Streamlit app
 
-# find mp3s on website
-    def download_from_website(url: str, sess: requests.Session) -> bytes:
-        user_agent = {"User-agent": "bot"}
-        r_page = sess.get(url, headers=user_agent)
-        soup = BeautifulSoup(r_page.content, "html.parser")
-        link = soup.find(lambda tag: tag.name == "a" and tag.has_attr("download")) # may need to remove download attribution
-        if link is None:
-            st.error(f"No mp3 file found on page '{url}'")
-            raise ValueError(f"No mp3 file found on page '{url}'")
+# NOTE: adjust requests/URL sections to point toward page(s) of interest
+	@st.cache(allow_output_mutation=True)
 
-        url_mp3_file = "http.*\.mp3" + link["href"] # check if wildcard url throws error
-        r_mp3_file = sess.get(url_midi_file, headers=user_agent)
-        return r_mp3_file.content
+	def load_session():
+		return requests.Session()
 
-# st components
-    def main():
-        st.title(":arrows_clockwise: mp3 to wav converter")
-        sess = load_session()
+	def has_download_attr(tag):
+		return tag.has_attr("download")
 
-        uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-        mp3_link = st.text_input("Or input mp3 URL")
+	@st.cache(
+		hash_funcs={requests.Session: id},
+		allow_output_mutation=True,
+		suppress_st_warning=True,
+	)
 
-        mp3_file = None
+	def download_from_website(url: str, sess: requests.Session) -> bytes:
+		user_agent = {"User-agent": "bot"}
+		r_page = sess.get(url, headers=user_agent)
+		soup = BeautifulSoup(r_page.content, "html.parser")
+		link = soup.find(lambda tag: tag.name == "a" and tag.has_attr("download"))
+		if link is None:
+			st.error(f"No mp3 file found on page '{url}'")
+			raise ValueError(f"No mp3 file found on page '{url}'")
 
-        if uploaded_file is None:
-            if "http.*\.mp3" not in mp3_link:
-                st.error("Make sure your URL is of type 'http.*\.mp3'")
-                st.stop()
-            with st.spinner(f"Downloading mp3 file from {mp3_link}"):
-                midi_file = io.BytesIO(download_from_website(mp3_link, sess))
-        else:
-            mp3_file = uploaded_file
+		url_mp3_file = "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/" + link["href"] # change URL to request/query other sites, using UCSD FW website as example
+		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
+		return r_mp3_file.content
 
-        st.markdown("---")
 
-        with st.spinner(f"Transcribing to wav"):
+	def main():
+    	st.title(":arrows_clockwise: mp3 to wav converter")
+    	sess = load_session()
 
-            sound = AudioSegment.from_mp3(mp3_file)
+    	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
+    	audio_link = st.text_input(
+        	"Or input URL", "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/HuelgaDVD.mp3"
+    	)
 
-            virtualfile = io.BytesIO()
-            wavfile.write(virtualfile, 44100, sound)
+    mp3_file = None
 
-        st.audio(virtualfile)
-        st.markdown("Download the audio by right-clicking on the media player")
+    if uploaded_file is None:
+        if "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/" not in audio_link:
+            st.error("Make sure your URL is of type 'https://library.ucsd.edu/farmworkermovement/media/oral_history/music/<mp3_name>'")
+            st.stop()
+        with st.spinner(f"Downloading mp3 file from {audio_link}"):
+            midi_file = io.BytesIO(download_from_website(audio_link, sess))
+    else:
+        mp3_file = uploaded_file
+
+    st.markdown("---")
+
+    with st.spinner(f"Transcribing to wav"):
+        # files                                                                       
+		src = mp3_file
+
+		# convert wav to mp3                                                            
+		audSeg = AudioSegment.from_mp3(mp3_file)
+
+        virtualfile = io.BytesIO()
+        wavfile.write(virtualfile, 44100, audSeg)
+
+    st.audio(virtualfile)
+    st.markdown("Download the audio by right-clicking on the media player")
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
