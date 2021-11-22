@@ -81,29 +81,29 @@ if page == 'Audio Conversion':
 
     	mp3_file = None
 
-    if uploaded_file is None:
-        if "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/" not in audio_link:
-            st.error("Make sure your URL is of type 'https://library.ucsd.edu/farmworkermovement/media/oral_history/music/<mp3_name>'")
-            st.stop()
-        with st.spinner(f"Downloading mp3 file from {audio_link}"):
-            midi_file = io.BytesIO(download_from_website(audio_link, sess))
-    else:
-        mp3_file = uploaded_file
+    	if uploaded_file is None:
+        	if "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/" not in audio_link:
+            		st.error("Make sure your URL is of type 'https://library.ucsd.edu/farmworkermovement/media/oral_history/music/<mp3_name>'")
+            		st.stop()
+        	with st.spinner(f"Downloading mp3 file from {audio_link}"):
+            		midi_file = io.BytesIO(download_from_website(audio_link, sess))
+    	else:
+        	mp3_file = uploaded_file
 
-    st.markdown("---")
+    	st.markdown("---")
 
-    with st.spinner(f"Transcribing to wav"):
-        # files                                                                       
+    	with st.spinner(f"Transcribing to wav"):
+        	# files                                                                       
 		src = mp3_file
 
 		# convert wav to mp3                                                            
 		audSeg = AudioSegment.from_mp3(mp3_file)
 
-        virtualfile = io.BytesIO()
-        wavfile.write(virtualfile, 44100, audSeg)
+        	virtualfile = io.BytesIO()
+        	wavfile.write(virtualfile, 44100, audSeg)
 
-    st.audio(virtualfile)
-    st.markdown("Download the audio by right-clicking on the media player")
+    	st.audio(virtualfile)
+    	st.markdown("Download the audio by right-clicking on the media player")
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
