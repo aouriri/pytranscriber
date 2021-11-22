@@ -52,7 +52,8 @@ if page == 'Audio Conversion':
 	st.download_button(
 		label="Download wav file",
 		data=uploaded_file,
-		mime=None,
+		file_name="converted_file.wav",
+		mime='audio/wav',
 	)
         
 elif page == 'Speech to Text Transcription':
