@@ -42,57 +42,11 @@ if page == 'Audio Conversion':
 
 # NOTE: adjust requests/URL sections to point toward page(s) of interest
 
-	@st.cache(allow_output_mutation=True)
-
-	def load_session():
-		return requests.Session()
-
-	def has_download_attr(tag):
-		return tag.has_attr("download")
-
-	@st.cache(
-		hash_funcs={requests.Session: id},
-		allow_output_mutation=True,
-		suppress_st_warning=True,
-	)
-
-	def download_from_website(url: str, sess: requests.Session) -> bytes:
-		user_agent = {"User-agent": "bot"}
-		r_page = sess.get(url, headers=user_agent)
-		soup = BeautifulSoup(r_page.content, "html.parser")
-		link = soup.find(lambda tag: tag.name == "a")
-		if link is None:
-			st.error(f"No mp3 file found on page '{url}'")
-			raise ValueError(f"No mp3 file found on page '{url}'")
-
-		url_mp3_file = "https://library.ucsd.edu/" + link["href"] # change URL to request/query other sites, using UCSD FW website as example
-		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
-		return r_mp3_file.content
-
 	def main():
 		st.title(":arrows_clockwise: mp3 to wav converter")
-		sess = load_session()
 		
 		uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-		audio_link = st.text_input(
-			"Or input URL"
-		)
-		
-	mp3_file = None
-	
-	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	audio_link = st.text_input(
-			"Or input URL"
-		)
-	sess = load_session()
 
-	if uploaded_file is None:
-        	if "https://library.ucsd.edu/farmworkermovement/media/oral_history/" not in audio_link:
-            		st.error("Make sure your URL is of type 'https://library.ucsd.edu/farmworkermovement/media/oral_history/<mp3_name>'")
-            		st.stop()
-        	with st.spinner(f"Downloading mp3 file from {audio_link}"):
-            		mp3_file = io.BytesIO(download_from_website(audio_link, sess))
-	else:
 		mp3_file = uploaded_file
 			
 	st.markdown("---")
