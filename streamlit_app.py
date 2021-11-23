@@ -67,6 +67,7 @@ if page == 'Audio Conversion':
 
 
 	st.title(":arrows_clockwise: mp3 to wav converter")
+	sess = load_session()
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 	mp3_link = st.text_input(
