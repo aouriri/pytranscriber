@@ -112,7 +112,7 @@ else:
 			"kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_}
 		       for ent in doc.ents],
 	      "title": None}
-    spacy.displacy.serve(params, style="ent", manual=True)
+    displacy.serve(params, style="ent", manual=True)
     #spacy_streamlit.visualize_ner(
     #        doc,
     #        labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
