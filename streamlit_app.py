@@ -40,12 +40,51 @@ st.sidebar.markdown(
 if page == 'Audio Conversion':
 # Display the conversion content here
 # NOTE: adjust requests/URL sections to point toward page(s) of interest
+
+	@st.cache(allow_output_mutation=True)
+	def load_session():
+		return requests.Session()
+
+	
+	def has_download_attr(tag):
+		return tag.has_attr("download")
+
+
+	@st.cache(
+		hash_funcs={requests.Session: id},
+		allow_output_mutation=True,
+		suppress_st_warning=True,
+		)
+	def download_from_URL(url: str, sess: requests.Session) -> bytes:
+		user_agent = {"User-agent": "bot"}
+		r_page = sess.get(url, headers=user_agent)
+		soup = BeautifulSoup(r_page.content, "html.parser")
+		link = soup.find(lambda tag: tag.name == "a" and tag.has_attr("download"))
+		if link is None:
+			st.error(f"No mp3 file found on page '{url}'")
+			raise ValueError(f"No mp3 file found on page '{url}'")
+
+		url_mp3_file = "https://freemusicarchive.org/music/" + link["href"]
+		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
+		return r_mp3_file.content
+
+
 	st.title(":arrows_clockwise: mp3 to wav converter")
 	
-	st.text("Upload mp3 file")
-	uploaded_file = st.file_uploader("", type=["mp3"])
+	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
+	mp3_link = st.text_input(
+        "Or input mp3 URL", "https://freemusicarchive.org/music/Voodoo_Suite/blissbloodcom/Little_Grass_Shack"
+    )
 	
 	mp3_file = None
+
+	if uploaded_file is None:
+        if "https://freemusicarchive.org/music/" not in mp3_link:
+            st.error("Make sure your URL is of type 'https://freemusicarchive.org/music/<mp3_name>'")
+            st.stop()
+    else:
+        mp3_file = uploaded_file
+	
 	st.markdown("---")
 	
 	st.audio(uploaded_file)
