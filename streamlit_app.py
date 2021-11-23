@@ -45,6 +45,7 @@ if page == 'Audio Conversion':
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 	
 	mp3_file = None
+	st.markdown("---")
 		
 	st.text("Preview uploaded file") 
 	st.audio(uploaded_file)
