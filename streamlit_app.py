@@ -8,7 +8,7 @@ import subprocess
 from bs4 import BeautifulSoup
 from spacy.kb import KnowledgeBase
 from os import path
-from pydub import AudioSegment
+from spacy import displacy
 
 app_formal_name = 'Audio Conversion//Speech to Text//NER'
 
@@ -100,11 +100,10 @@ else:
            
     DEFAULT_TEXT = """Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002."""
     
-    spacy_model = "en_core_web_sm"
+    nlp = spacy.load("en_core_web_sm")
+    nlp.add_pipe('opentapioca')
     text = st.text_area("Text to analyze (Default text can be used but, I'm okay with change.)", DEFAULT_TEXT, height=200)
-    spacy_model.add_pipe('opentapioca')
-    doc = spacy_streamlit.process_text(spacy_model, text)
-
+    doc = nlp(text)
     params = {"text": doc.text,
 	      "ents": [{"start": ent.start_char,
 			"end": ent.end_char,
@@ -114,7 +113,6 @@ else:
 		       for ent in doc.ents],
 	      "title": None}
     spacy.displacy.serve(params, style="ent", manual=True)
-
     #spacy_streamlit.visualize_ner(
     #        doc,
     #        labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
