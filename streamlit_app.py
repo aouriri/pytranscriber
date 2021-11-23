@@ -70,14 +70,11 @@ if page == 'Audio Conversion':
 	sess = load_session()
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	mp3_link = st.text_input("Or input mp3 URL")
+	mp3_link = st.text_input("or input mp3 URL")
 	
 	mp3_file = None
 
 	if uploaded_file is None:
-		if "https://freemusicarchive.org/music/" not in mp3_link:
-			st.error("Make sure your URL is of type 'https://freemusicarchive.org/music/<mp3_name>'")
-			st.stop()
 		with st.spinner(f"Downloading mp3 file from {mp3_link}"):
 			mp3_file = io.BytesIO(download_from_URL(mp3_link, sess))
 	else:
