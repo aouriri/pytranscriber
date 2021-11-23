@@ -5,9 +5,7 @@ import streamlit as st
 import spacy
 import spacy_streamlit
 from bs4 import BeautifulSoup
-from spacy.kb import KnowledgeBase
 from os import path
-from spacy import displacy
 
 app_formal_name = 'Audio Conversion//Speech to Text//NER'
 
@@ -38,6 +36,7 @@ st.sidebar.markdown(
 
 if page == 'Audio Conversion':
 # Display the conversion content here
+# Based on Fanilo Andrianasolo's Streamlit MIDI to WAV Converter.
 # NOTE: adjust requests/URL sections to point toward page(s) of interest
 	@st.cache(allow_output_mutation=True)
 	def load_session():
@@ -80,6 +79,8 @@ if page == 'Audio Conversion':
 		if "https://freemusicarchive.org/music/" not in mp3_link:
 			st.error("Make sure your URL is of type 'https://freemusicarchive.org/music/<mp3_name>'")
 			st.stop()
+		with st.spinner(f"Downloading mp3 file from {mp3_link}"):
+			mp3_file = io.BytesIO(download_from_URL(mp3_link, sess))
 	else:
 		mp3_file = uploaded_file
 	
