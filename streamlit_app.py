@@ -61,7 +61,7 @@ if page == 'Audio Conversion':
 			st.error(f"No mp3 file found on page '{url}'")
 			raise ValueError(f"No mp3 file found on page '{url}'")
 
-		url_mp3_file = "https://freemusicarchive.org/music/" + link["href"]
+		url_mp3_file = ["https://freemusicarchive.org/music/" + link["href"] for link in links if link['href'].endswith('mp3')]
 		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
 		return r_mp3_file.content
 
