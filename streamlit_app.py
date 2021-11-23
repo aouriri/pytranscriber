@@ -78,11 +78,11 @@ if page == 'Audio Conversion':
 	mp3_file = None
 
 	if uploaded_file is None:
-        if "https://freemusicarchive.org/music/" not in mp3_link:
-            st.error("Make sure your URL is of type 'https://freemusicarchive.org/music/<mp3_name>'")
-            st.stop()
-    else:
-        mp3_file = uploaded_file
+		if "https://freemusicarchive.org/music/" not in mp3_link:
+			st.error("Make sure your URL is of type 'https://freemusicarchive.org/music/<mp3_name>'")
+			st.stop()
+	else:
+		mp3_file = uploaded_file
 	
 	st.markdown("---")
 	
