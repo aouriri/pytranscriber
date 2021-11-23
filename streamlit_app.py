@@ -41,15 +41,15 @@ if page == 'Audio Conversion':
 # Display the conversion content here
 # NOTE: adjust requests/URL sections to point toward page(s) of interest
 	st.title(":arrows_clockwise: mp3 to wav converter")
-		
-	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
+	
+	st.text("Upload mp3 file")
+	uploaded_file = st.file_uploader(type=["mp3"])
 	
 	mp3_file = None
 	st.markdown("---")
-		
-	st.text("Preview uploaded file") 
+	
 	st.audio(uploaded_file)
-	st.text("Audio file can be downloaded as wav file by clicking the vertical elipses on the player and selecting 'Download'.")
+	st.text("Preview uploaded file. Audio file can be downloaded as wav file by clicking the vertical elipses on the player and selecting 'Download'.")
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
