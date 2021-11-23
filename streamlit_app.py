@@ -43,7 +43,7 @@ if page == 'Audio Conversion':
 	st.title(":arrows_clockwise: mp3 to wav converter")
 	
 	st.text("Upload mp3 file")
-	uploaded_file = st.file_uploader(" ", type=["mp3"])
+	uploaded_file = st.file_uploader("", type=["mp3"])
 	
 	mp3_file = None
 	st.markdown("---")
