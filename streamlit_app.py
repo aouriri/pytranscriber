@@ -94,7 +94,7 @@ elif page == 'Speech to Text Transcription':
     with sr.AudioFile(filename) as source:
     # listen for the data (load audio to memory)
     	audio_data = r.record(source)
-    # recognize (convert from speech to text)
+    # recognize (convert from speech to text)	
 	text = r.recognize_google(audio_data)
 	
     transcribedtxt = st.text_area("Transcribed text", text)
