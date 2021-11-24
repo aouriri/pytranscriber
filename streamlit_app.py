@@ -61,7 +61,7 @@ if page == 'Audio Conversion':
 			st.error(f"No mp3 file found on page '{url}'")
 			raise ValueError(f"No mp3 file found on page '{url}'")
 
-		url_mp3_file = ["https://freemusicarchive.org/music/" + link["href"] for link in links if link['href'].endswith('mp3')]
+		url_mp3_file = ["https://library.ucsd.edu/farmworkermovement/" + link["href"] for link in links if link['href'].endswith('mp3')]
 		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
 		return r_mp3_file.content
 
@@ -70,7 +70,7 @@ if page == 'Audio Conversion':
 	sess = load_session()
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	mp3_link = st.text_input("or input mp3 URL", "https://freemusicarchive.org/music/Voodoo_Suite/blissbloodcom/Little_Grass_Shack"
+	mp3_link = st.text_input("or input mp3 URL", "https://library.ucsd.edu/farmworkermovement/media/oral_history/jan09/Gilbert%20Flores.mp3"
 	)
 	
 	mp3_file = None
