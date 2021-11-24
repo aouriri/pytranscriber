@@ -56,12 +56,12 @@ if page == 'Audio Conversion':
 		user_agent = {"User-agent": "bot"}
 		r_page = sess.get(url, headers=user_agent)
 		soup = BeautifulSoup(r_page.content, "html.parser")
-		link = soup.find(lambda tag: tag.name == "a" and tag.has_attr("download"))
+		link = soup.find(lambda tag: tag.name == "a")
 		if link is None:
 			st.error(f"No mp3 file found on page '{url}'")
 			raise ValueError(f"No mp3 file found on page '{url}'")
 
-		url_mp3_file = ["https://library.ucsd.edu/farmworkermovement/" + link["href"] for link in links if link['href'].endswith('mp3')]
+		url_mp3_file = ["https://library.ucsd.edu/" + link["href"] for link in links if link['href'].endswith('mp3')]
 		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
 		return r_mp3_file.content
 
