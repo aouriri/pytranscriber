@@ -70,7 +70,8 @@ if page == 'Audio Conversion':
 	sess = load_session()
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	mp3_link = st.text_input("or input mp3 URL")
+	mp3_link = st.text_input("or input mp3 URL", "https://freemusicarchive.org/music/Voodoo_Suite/blissbloodcom/Little_Grass_Shack"
+	)
 	
 	mp3_file = None
 
