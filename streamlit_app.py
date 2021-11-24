@@ -85,17 +85,17 @@ if page == 'Audio Conversion':
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
-    st.title('Speech to Text Transcription')
-    fileObject = st.file_uploader("Please upload your file")
+    	st.title('Speech to Text Transcription')
+    	fileObject = st.file_uploader("Please upload your file")
     
-    filename = fileObject
-    r = sr.Recognizer()
+    	filename = fileObject
+    	r = sr.Recognizer()
 
-    with sr.AudioFile(filename) as source:
-	audio_data = r.record(source)
-	text = r.recognize_google(audio_data)
-	
-    transcribedtxt = st.text_area("Transcribed text", text)
+    	with sr.AudioFile(filename) as source:
+		audio_data = r.record(source)
+		text = r.recognize_google(audio_data)
+    
+    	transcribedtxt = st.text_area("Transcribed text", text)
 
 	
 else:
