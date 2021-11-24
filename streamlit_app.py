@@ -57,7 +57,7 @@ if page == 'Audio Conversion':
 			st.error(f"No mp3 file found on page '{url}'")
 			raise ValueError(f"No mp3 file found on page '{url}'")
 
-		url_mp3_file = ["https://library.ucsd.edu/" + link["href"] for link in links if link['href'].endswith('.mp3')]
+		url_mp3_file = ["https://library.ucsd.edu" + link["href"] for link in links if link['href'].endswith('.mp3')]
 		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
 		return r_mp3_file.content
 
@@ -66,7 +66,7 @@ if page == 'Audio Conversion':
 	sess = load_session()
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	mp3_link = st.text_input("or input mp3 URL", "farmworkermovement/media/oral_history/jan09/Gilbert%20Flores.mp3"
+	mp3_link = st.text_input("or input mp3 URL", "https://library.ucsd.edu/farmworkermovement/media/oral_history/whowascesar/03%20Roles.MP3"
 	)
 	
 	mp3_file = None
@@ -87,6 +87,7 @@ elif page == 'Speech to Text Transcription':
     st.title('Speech to Text Transcription')
     fileObject = st.file_uploader("Please upload your file")
     
+	
 else:
     # Display the NER content here
     # Example using the components provided by spacy-streamlit in an existing app.
