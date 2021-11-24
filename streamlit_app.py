@@ -42,11 +42,6 @@ if page == 'Audio Conversion':
 	def load_session():
 		return requests.Session()
 
-	
-	def has_download_attr(tag):
-		return tag.has_attr("download")
-
-
 	@st.cache(
 		hash_funcs={requests.Session: id},
 		allow_output_mutation=True,
