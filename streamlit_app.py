@@ -104,7 +104,7 @@ st.markdown("Speech to text using ```Python``` can be done 'out of the box' on s
 		    "**The attaching of my IBM Cloud account is for demostrative purposes.**"
 		   )
 	
-	code = ''' # Be sure to (pip) install SpeechRecognition before starting!
+code = ''' # Be sure to (pip) install SpeechRecognition before starting!
 	import speech_recognition as sr
 	
 	r = sr.Recognizer()
