@@ -85,8 +85,8 @@ if page == 'Audio Conversion':
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
-    st.title('Speech to Text Transcription')
-    fileObject = st.file_uploader("Please upload your file")
+    	st.title('Speech to Text Transcription')
+    	fileObject = st.file_uploader("Please upload your file")
     
     	#filename = fileObject
     	#r = sr.Recognizer()
