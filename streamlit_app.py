@@ -52,7 +52,7 @@ if page == 'Audio Conversion':
 	def download_from_URL(url: str, sess: requests.Session) -> bytes:
 		user_agent = {"User-agent": "bot"}
 		r_page = sess.get(url, headers=user_agent)
-		soup = BeautifulSoup(r_page.content, "html.parser")
+		soup = BeautifulSoup(r_page.content, "html.parser", from_encoding = "iso-8859-1")
 		link = soup.find_all(lambda tag: tag.name == "a")
 		if link is None:
 			st.error(f"No mp3 file found on page '{url}'")
