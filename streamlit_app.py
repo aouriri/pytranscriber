@@ -1,6 +1,13 @@
-import io import numpy as np import requests import time import
-speech_recognition as sr import streamlit as st import spacy import
-spacy_streamlit from bs4 import BeautifulSoup from os import path
+import io
+import numpy as np
+import requests
+import time
+import speech_recognition as sr
+import streamlit as st
+import spacy
+import spacy_streamlit
+from bs4 import BeautifulSoup
+from os import path
 
 app_formal_name = 'Audio Conversion//Speech to Text//NER'
 
