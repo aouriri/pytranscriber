@@ -67,7 +67,7 @@ if page == 'Audio Conversion':
 	sess = load_session()
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	mp3_link = st.text_input("or input mp3 URL", "https://library.ucsd.edu/farmworkermovement/media/oral_history/whowascesar/03%20Roles.MP3"
+	mp3_link = st.text_input("or input mp3 URL", "https://library.ucsd.edu/farmworkermovement/media/oral_history/whowascesar/08%20Spirituality2.mp3"
 	)
 	
 	mp3_file = None
