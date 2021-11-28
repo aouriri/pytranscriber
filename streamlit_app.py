@@ -12,16 +12,15 @@ from os import path
 app_formal_name = 'Audio Conversion//Speech to Text//NER'
 
 st.set_page_config(
-        page_title="pytranscriber",
-        page_icon=":arrows_clockwise:",
-        initial_sidebar_state="auto",
-        menu_items={
-          'Report a bug': "https://github.com/aouriri/pytranscriber/issues",
-          'About':  f"[{app_formal_name}](https://github.com/aouriri/pytranscriber) "
-    f"converts mp3 files to wav (with the option to download), transcribes that audio file to text using the [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) Python library. "
-    f"The text can the be copied to be used elsewhere **or** processed using [spaCy](https://github.com/explosion/spacy-streamlit). "
-   
-        }
+    page_title="pytranscriber",
+    page_icon=":arrows_clockwise:",
+    initial_sidebar_state="auto",
+    menu_items={
+    	'Report a bug': "https://github.com/aouriri/pytranscriber/issues",
+        'About':  f"[{app_formal_name}](https://github.com/aouriri/pytranscriber) "
+    	f"converts mp3 files to wav (with the option to download), transcribes that audio file to text using the [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) Python library. "
+    	f"The text can the be copied to be used elsewhere **or** processed using [spaCy](https://github.com/explosion/spacy-streamlit). "
+    	}
 )
 
 st.sidebar.markdown("-----------------------------------")
@@ -85,16 +84,16 @@ if page == 'Audio Conversion':
         
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
-    	st.title('Speech to Text Transcription')
-    	fileObject = st.file_uploader("Please upload your file")
+    st.title('Speech to Text Transcription')
+    fileObject = st.file_uploader("Please upload your file")
 	
-	st.markdown("Speech to text using ```Python``` can be done 'out of the box' on short audio (less than/equal to a minute) using Google's Speech Recognition." 
-		    "The code for that is included below. For larger audio files, an API must be used."
-		    "For this project, I am using [IBM's Speech to Text](https://www.ibm.com/cloud/watson-speech-to-text) and its cloud." 
-		    "Its 'Lite' option includes 500 minutes of *free* speech recognition a month." 
-		    "If you choose to use another recognition API, **please fork/update code to reflect that.**" 
-		    "**The attaching of my IBM Cloud account is for demostrative purposes.**"
-		   )
+	st.markdown("Speech to text using ```Python``` can be done 'out of the box' on short audio (less than/equal to a minute) using Google's Speech Recognition. " 
+		"The code for that is included below. For larger audio files, an API must be used. "
+		"For this project, I am using [IBM's Speech to Text](https://www.ibm.com/cloud/watson-speech-to-text) and its cloud. " 
+		"Its 'Lite' option includes 500 minutes of *free* speech recognition a month. "
+		"If you choose to use another recognition API, **please fork/update code to reflect that.** "
+		"**The attaching of my IBM Cloud account is for demostrative purposes.**"
+	)
 	
 	code = ''' # Be sure to (pip) install SpeechRecognition before starting!
 	import speech_recognition as sr
@@ -118,26 +117,26 @@ else:
     doc = spacy_streamlit.process_text(spacy_model, text)
 
     spacy_streamlit.visualize_ner(
-            doc,
-            labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
-            show_table=False,
-            title="Person, Places and Other Things"
+    	doc,
+    	labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
+    	show_table=False,
+    	title="Person, Places and Other Things"
     )
     with st.expander("Entity label explanation"):
-            st.write("""
-                **PERSON:**      People, including fictional.
-                
-**NORP:**        Nationalities or religious or political groups.
+    	st.write("""
+    		**PERSON:**      People, including fictional.
 
-**ORG:**         Companies, agencies, institutions, etc.
+    		**NORP:**        Nationalities or religious or political groups.
 
-**GPE:**         Countries, cities, states.
+    		**ORG:**         Companies, agencies, institutions, etc.
 
-**LOC:**         Non-GPE locations, mountain ranges, bodies of water.
+    		**GPE:**         Countries, cities, states.
 
-**LAW:**         Named documents made into laws.
+    		**LOC:**         Non-GPE locations, mountain ranges, bodies of water.
 
-**DATE:**        Absolute or relative dates or periods.
+    		**LAW:**         Named documents made into laws.
+
+    		**DATE:**        Absolute or relative dates or periods.
      """)
     
     st.text(f'Analyzed using spaCy model {spacy_model}.')
