@@ -53,7 +53,7 @@ if page == 'Audio Conversion':
 		user_agent = {"User-agent": "bot"}
 		r_page = sess.get(url, headers=user_agent)
 		soup = BeautifulSoup(r_page.content, "html.parser")
-		link = soup.find(lambda tag: tag.name == "a")
+		link = soup.find_all(lambda tag: tag.name == "a")
 		if link is None:
 			st.error(f"No mp3 file found on page '{url}'")
 			raise ValueError(f"No mp3 file found on page '{url}'")
