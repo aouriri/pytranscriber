@@ -112,7 +112,7 @@ code = ''' # Be sure to (pip) install SpeechRecognition before starting!
 	harvard = sr.AudioFile('harvard.wav') # Example local audio file
 	with harvard as source:
 		audio = r.record(source)'''
-	st.code(code, language='python')
+st.code(code, language='python')
 	
 else:
     # Display the NER content here
