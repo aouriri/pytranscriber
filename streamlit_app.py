@@ -67,7 +67,7 @@ if page == 'Audio Conversion':
 	sess = load_session()
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	mp3_link = st.text_input("or input mp3 URL", "https://audionautix.com/Music//AcrylicOnCanvas.mp3"
+	mp3_link = st.text_input("or input mp3 URL", "https://audionautix.com/Music/AskRufus.mp3"
 	)
 	
 	mp3_file = None
