@@ -87,6 +87,7 @@ elif page == 'Speech to Text Transcription':
 	st.title('Speech to Text Transcription')
 	fileObject = st.file_uploader("Please upload your file")
 	
+	st.markdown("---")
 	st.markdown("Speech to text using ```Python``` can be done 'out of the box' on shorter audio (limited to 50 requests per day) using Google's Web Speech API. " 
 		"The code for that is included below. For larger audio files, an API must be used. "
 		"For this project, I am using [IBM's Speech to Text](https://www.ibm.com/cloud/watson-speech-to-text) and its cloud. " 
