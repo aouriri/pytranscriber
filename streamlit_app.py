@@ -96,7 +96,18 @@ elif page == 'Speech to Text Transcription':
 	#	text = r.recognize_google(audio_data)
     
     	#transcribedtxt = st.text_area("Transcribed text", text)
-
+	
+	st.markdown("Speech to text using ```Python``` can be done 'out of the box' on short audio (less than/equal to a minute) using Google's Speech Recognition. The code for that is included below. For larger audio files, an API must be used. For this project, I am using [IBM's Speech to Text](https://www.ibm.com/cloud/watson-speech-to-text) and its cloud. Its 'Lite' option includes 500 minutes of *free* speech recognition a month. If you choose to use another recognition API, **please fork/update code to reflect that.** **The attaching of my IBM Cloud account is for demostrative purposes.**")
+	
+	code = ''' # Be sure to (pip) install SpeechRecognition before starting!
+	import speech_recognition as sr
+	
+	r = sr.Recognizer()
+	r.recognize_google()
+	harvard = sr.AudioFile('harvard.wav') # Example local audio file
+	with harvard as source:
+		audio = r.record(source)'''
+	st.code(code, language='python')
 	
 else:
     # Display the NER content here
