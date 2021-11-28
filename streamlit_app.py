@@ -58,7 +58,7 @@ if page == 'Audio Conversion':
 			st.error(f"No mp3 file found on page '{url}'")
 			raise ValueError(f"No mp3 file found on page '{url}'")
 
-		url_mp3_file = ["https://library.ucsd.edu/farmworkermovement//medias/oral-history/" + link["href"] for link in links if link['href'].endswith('.mp3')]
+		url_mp3_file = ["https://audionautix.com/" + link["href"] for link in links if link['href'].endswith('.mp3')]
 		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
 		return r_mp3_file.content
 
@@ -67,7 +67,7 @@ if page == 'Audio Conversion':
 	sess = load_session()
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	mp3_link = st.text_input("or input mp3 URL", "https://library.ucsd.edu/farmworkermovement/media/oral_history/whowascesar/EllenEggers.mp3"
+	mp3_link = st.text_input("or input mp3 URL", "https://audionautix.com/Music//AcrylicOnCanvas.mp3"
 	)
 	
 	mp3_file = None
