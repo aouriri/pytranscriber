@@ -57,7 +57,7 @@ if page == 'Audio Conversion':
 			st.error(f"No mp3 file found on page '{url}'")
 			raise ValueError(f"No mp3 file found on page '{url}'")
 
-		url_mp3_file = "https://audionautix.com/"
+		url_mp3_file = "https://audionautix.com" + link["href"]
 		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
 		return r_mp3_file.content
 
@@ -92,16 +92,18 @@ elif page == 'Speech to Text Transcription':
 		"For this project, I am using [IBM's Speech to Text](https://www.ibm.com/cloud/watson-speech-to-text) and its cloud. " 
 		"Its 'Lite' option includes 500 minutes of *free* speech recognition a month. "
 		"If you choose to use another recognition API, **please fork/update code to reflect that.** "
-		"**The attaching of my IBM Cloud account is for demostrative purposes.**"
+		"**The attaching of my IBM Cloud account is for demonstrative purposes.**"
 	)
 	
 	code = ''' # Be sure to (pip) install SpeechRecognition before starting!
 	import speech_recognition as sr
+	
 	r = sr.Recognizer()
 	r.recognize_google()
 	harvard = sr.AudioFile('harvard.wav') # Example local audio file
 	with harvard as source:
-		audio = r.record(source)'''
+		audio = r.record(source)
+	r.recognize_google(audio)'''
 	st.code(code, language='python')
 	
 else:
