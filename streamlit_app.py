@@ -44,10 +44,11 @@ if page == 'Audio Conversion':
 	st.title(":arrows_clockwise: mp3 to wav converter")
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	mp3_link = st.text_input("or input mp3 URL", "https://library.ucsd.edu/farmworkermovement/media/oral_history/music/Huelga%203%20Cesar%20Chavez.mp3"
-	)
+	mp3_link = st.text_input("or input mp3 URL")
+	source = url.urlopen('https://www.yelp.com/search?cflt=beaches&find_loc=Los%20Angeles%2C%20CA&start=90')
 	
-	mp3_url = urllib3.urlopen(mp3_link)
+	if len(text) > 1:
+		source_new = url.urlopen(mp3_link)
 	
 	mp3_file = None
 
