@@ -52,7 +52,7 @@ if page == 'Audio Conversion':
 		user_agent = {"User-agent": "bot"}
 		r_page = sess.get(url, headers=user_agent)
 		soup = BeautifulSoup(r_page.content, "html.parser")
-		link = soup.find(lambda tag: tag.name == "a")
+		link = soup.find(lambda tag: tag.name == "a" and tag.has_attr("download"))
 		if link is None:
 			st.error(f"No mp3 file found on page '{url}'")
 			raise ValueError(f"No mp3 file found on page '{url}'")
@@ -104,7 +104,11 @@ elif page == 'Speech to Text Transcription':
 	harvard = sr.AudioFile('harvard.wav') # Example local audio file
 	with harvard as source:
 		audio = r.record(source)
-	r.recognize_google(audio)'''
+	r.recognize_google(audio)
+	f = open("transcription.txt", "a")
+	f.write(r.recognize_google(audio))
+	f.write(" ")
+	f.close()'''
 	st.code(code, language='python')
 	
 else:
