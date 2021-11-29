@@ -4,6 +4,7 @@ import requests
 import time
 import speech_recognition as sr
 import urllib3
+import urllib3.request as url
 import streamlit as st
 import spacy
 import spacy_streamlit
