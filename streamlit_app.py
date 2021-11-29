@@ -60,6 +60,10 @@ if page == 'Audio Conversion':
 		url_mp3_file = "https://audionautix.com/" + link["href"]
 		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
 		return r_mp3_file.content
+	
+	# replace above with urllib code below to test for mp3s; may keep uploaded_file if/else statement
+	# import urllib2
+	# mp3file = urllib2.urlopen("http://www.example.com/songs/mp3.mp3")
 
 
 	st.title(":arrows_clockwise: mp3 to wav converter")
