@@ -86,7 +86,7 @@ if page == 'Audio Conversion':
 	
 	st.audio(uploaded_file)
 	st.text("Preview uploaded file. " 
-		"Audio file can be downloaded as wav file by clicking the vertical elipses on the player and selecting 'Download'.")
+		f"Audio file can be downloaded as wav file by clicking the vertical elipses on the player and selecting 'Download'.")
 		
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
