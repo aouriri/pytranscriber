@@ -40,51 +40,27 @@ if page == 'Audio Conversion':
 # Display the conversion content here
 # Based on Fanilo Andrianasolo's Streamlit MIDI to WAV Converter.
 # NOTE: adjust requests/URL sections to point toward page(s) of interest
-	@st.cache(allow_output_mutation=True)
-	def load_session():
-		return requests.Session()
-
-	@st.cache(
-		hash_funcs={requests.Session: id},
-		allow_output_mutation=True,
-		suppress_st_warning=True,
-		)
-	def download_from_URL(url: str, sess: requests.Session) -> bytes:
-		user_agent = {"User-agent": "bot"}
-		r_page = sess.get(url, headers=user_agent)
-		soup = BeautifulSoup(r_page.content, "html.parser")
-		link = soup.find(lambda tag: tag.name == "a" and tag.has_attr("download"))
-		if link is None:
-			st.error(f"No mp3 file found on page '{url}'")
-			raise ValueError(f"No mp3 file found on page '{url}'")
-			
-		url_mp3_file = "https://audionautix.com/" + link["href"]
-		r_mp3_file = sess.get(url_mp3_file, headers=user_agent)
-		return r_mp3_file.content
 	
-	# replace above with urllib code below to test for mp3s; may keep uploaded_file if/else statement
-	# import urllib2
-	# mp3file = urllib2.urlopen("http://www.example.com/songs/mp3.mp3")
-
-
 	st.title(":arrows_clockwise: mp3 to wav converter")
 	sess = load_session()
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	mp3_link = st.text_input("or input mp3 URL", "https://audionautix.com/free-music/SOUNDTRACK"
+	mp3_link = st.text_input("or input mp3 URL", {url}
 	)
+	
+	mp3_url = urllib3.urlopen(mp3_link)
 	
 	mp3_file = None
 
 	if uploaded_file is None:
 		with st.spinner(f"Downloading mp3 file from {mp3_link}"):
-			mp3_file = io.BytesIO(download_from_URL(mp3_link, sess))
+			mp3_file = mp3_link
 	else:
 		mp3_file = uploaded_file
 	
 	st.markdown("---")
 	
-	st.audio(uploaded_file)
+	st.audio(mp3_file)
 	st.markdown("Preview uploaded file. Audio file can be downloaded as wav file by clicking the vertical elipses on the player and selecting 'Download'.")
 		
 elif page == 'Speech to Text Transcription':
