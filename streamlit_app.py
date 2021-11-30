@@ -44,7 +44,7 @@ if page == 'Audio Conversion':
 	st.title(":arrows_clockwise: mp3 to wav converter")
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	mp3_link = st.text_input("or input mp3 URL")
+	mp3_link = st.text_input("or input mp3 URL", placeholder="Paste mp3 URL here.")
 	
 	if len(mp3_link) > 1:
 		source = url.urlopen(mp3_link)
