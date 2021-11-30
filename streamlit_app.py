@@ -57,8 +57,8 @@ if page == 'Audio Conversion':
 	else:
 		audio = st.audio(uploaded_file)
 	
-	st.markdown("mp3s uploaded locally can be downloaded as a wav file from the audio player **(vertical elipses > 'Download')**, "
-		   "mp3s from a URL must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
+	st.markdown("mp3s *uploaded locally* can be downloaded as a wav file from the audio player **(vertical elipses > 'Download')**, "
+		   "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
 		   )
 		    
 	# Download rules different for URL; uploaded mp3 can be downloaded from player as wav, mp3 URL MUST be converted -- add 'Download' button?
