@@ -13,3 +13,4 @@ https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.0.
 spacyopentapioca
 SpeechRecognition>=3.8.1
 urllib3
+subprocess.run
