@@ -64,9 +64,7 @@ if page == 'Audio Conversion':
 	while not os.path.exists(mp3_file):
 		time.sleep(1)
 		time_counter += 1
-		if time_counter > time_to_wait:break
-
-print("done")
+		if time_counter > time_to_wait:break		
 	
 	st.audio(mp3_file) # fix to clear error of no input at start; wait function?
 	st.markdown("Preview uploaded file. Audio file can be downloaded as wav file by clicking the vertical elipses on the player and selecting 'Download'.")
