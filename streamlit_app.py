@@ -44,18 +44,18 @@ if page == 'Audio Conversion':
 	
 	st.title(":arrows_clockwise: mp3 to wav converter")
 	
-	time_to_wait = 10
-	time_counter = 0
-	while not os.path.exists(mp3_link):
-		time.sleep(1)
-		time_counter += 1
-		if time_counter > time_to_wait:break	
-	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 	mp3_link = st.text_input("or input mp3 URL")
 	
 	if len(mp3_link) >1:
 		source = url.urlopen(mp3_link)
+		
+	time_to_wait = 10
+	time_counter = 0
+	while not os.path.exists(mp3_link):
+		time.sleep(1)
+		time_counter += 1
+		if time_counter > time_to_wait:break
 	
 	mp3_file = None
 
