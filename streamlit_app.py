@@ -39,8 +39,6 @@ st.sidebar.markdown(
 
 if page == 'Audio Conversion':
 # Display the conversion content here
-# Based on Fanilo Andrianasolo's Streamlit MIDI to WAV Converter.
-# NOTE: adjust requests/URL sections to point toward page(s) of interest
 	
 	st.title(":arrows_clockwise: mp3 to wav converter")
 	
