@@ -58,12 +58,6 @@ if page == 'Audio Conversion':
 	else:
 		mp3_file = uploaded_file
 	
-	try:
-		with open(mp3_link) as input:
-			st.text(input.read())
-	except FileNotFoundError:
-		st.error('File not found.')
-	
 	st.markdown("---")	
 	
 	st.audio(mp3_file) # fix to clear error of no input at start; wait function?
