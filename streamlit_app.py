@@ -57,11 +57,6 @@ if page == 'Audio Conversion':
 			mp3_file = mp3_link
 	else:
 		mp3_file = uploaded_file
-		
-	while not os.path.exists(mp3_file):
-		time.sleep(1)
-	if os.path.isfile(mp3_file):
-	# read file
 	
 	st.markdown("---")	
 	
