@@ -61,10 +61,23 @@ if page == 'Audio Conversion':
 	else:
 		audio = st.audio(uploaded_file)
 			
-	
 	st.markdown("mp3s *uploaded locally* can be downloaded as a wav file from the audio player **(vertical elipses > 'Download')**, "
 		   "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
 		   )
+	
+	src = mp3_link
+	dst = "convaudio.wav"
+	
+	# convert wav to mp3
+	audSeg = AudioSegment.from_mp3(src)
+	wav_file = audSeg.export(dst, format="wav")
+	
+	st.download_button(
+		label="Convert!",
+		data=wav_file,
+		file_name='convaudio.wav',
+		mime='audio/wav',
+	)
 	
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
