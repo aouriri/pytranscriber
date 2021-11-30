@@ -50,7 +50,7 @@ if page == 'Audio Conversion':
 		
 	st.markdown("---")	
 	
-	st.text("Preview uploaded file.")
+	st.text("Preview selected file.")
 	
 	if len(mp3_link) != 0:
 		audio = st.audio(mp3_link)
