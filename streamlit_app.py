@@ -62,7 +62,7 @@ if page == 'Audio Conversion':
 	
 	time_to_wait = 10
 	time_counter = 0
-	while not os.path.exists(mp3_file):
+	while not os.path.exists(mp3_link):
 		time.sleep(1)
 		time_counter += 1
 		if time_counter > time_to_wait:break		
