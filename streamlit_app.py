@@ -46,7 +46,7 @@ if page == 'Audio Conversion':
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 	mp3_link = st.text_input("or input mp3 URL", placeholder="Paste mp3 URL here.")
 	
-	if len(mp3_link) > 1:
+	if len(mp3_link) !=0:
 		source = url.urlopen(mp3_link)
 	
 	mp3_file = None
