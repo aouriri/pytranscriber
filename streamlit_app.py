@@ -49,15 +49,7 @@ if page == 'Audio Conversion':
 	
 	if len(mp3_link) >1:
 		source = url.urlopen(mp3_link)
-	
-	mp3_file = None
-	
-	#if uploaded_file is None:
-	#	with st.spinner(f"Downloading mp3 file from {mp3_link}"):
-	#		mp3_file = mp3_link
-	#else:
-	#	mp3_file = uploaded_file
-	
+		
 	st.markdown("---")	
 	
 	if len(mp3_link) != 0:
