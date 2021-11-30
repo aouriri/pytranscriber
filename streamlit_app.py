@@ -52,11 +52,11 @@ if page == 'Audio Conversion':
 	
 	mp3_file = None
 	
-	if uploaded_file is None:
-		with st.spinner(f"Downloading mp3 file from {mp3_link}"):
+	#if uploaded_file is None:
+	#	with st.spinner(f"Downloading mp3 file from {mp3_link}"):
 			mp3_file = mp3_link
-	else:
-		mp3_file = uploaded_file
+	#else:
+	#	mp3_file = uploaded_file
 	
 	st.markdown("---")	
 	
