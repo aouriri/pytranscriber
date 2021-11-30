@@ -61,8 +61,8 @@ if page == 'Audio Conversion':
 	while not os.path.exists(mp3_file):
 		time.sleep(1)
 	if os.path.isfile(mp3_file):
-		else:
-			raise ValueError("%s isn't a file!" % mp3_file)
+	else:
+		raise ValueError("%s isn't a file!" % mp3_file)
 	
 	st.markdown("---")	
 	
