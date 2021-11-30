@@ -44,9 +44,9 @@ if page == 'Audio Conversion':
 	st.title(":arrows_clockwise: mp3 to wav converter")
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
-	mp3_link = st.text_input("or input mp3 URL", placeholder="Paste mp3 URL here.")
+	mp3_link = st.text_input("or input mp3 URL")
 	
-	if len(mp3_link) !=0:
+	if len(mp3_link) >1:
 		source = url.urlopen(mp3_link)
 	
 	mp3_file = None
@@ -59,7 +59,7 @@ if page == 'Audio Conversion':
 	
 	st.markdown("---")
 	
-	st.audio(mp3_file)
+	st.audio(mp3_file) # fix to clear error of no input at start; wait function?
 	st.markdown("Preview uploaded file. Audio file can be downloaded as wav file by clicking the vertical elipses on the player and selecting 'Download'.")
 		
 elif page == 'Speech to Text Transcription':
