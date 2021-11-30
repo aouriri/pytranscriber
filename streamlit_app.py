@@ -45,10 +45,9 @@ if page == 'Audio Conversion':
 	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 	mp3_link = st.text_input("or input mp3 URL")
-	source = url.urlopen('https://www.yelp.com/search?cflt=beaches&find_loc=Los%20Angeles%2C%20CA&start=90')
 	
 	if len(mp3_link) > 1:
-		source_new = url.urlopen(mp3_link)
+		source = url.urlopen(mp3_link)
 	
 	mp3_file = None
 
