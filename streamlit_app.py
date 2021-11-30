@@ -5,6 +5,7 @@ import requests
 import time
 import speech_recognition as sr
 import os
+import subprocess
 import urllib.request as url
 import streamlit as st
 import spacy
@@ -59,6 +60,9 @@ if page == 'Audio Conversion':
 		audio = st.audio(mp3_link)
 	else:
 		audio = st.audio(uploaded_file)
+		
+	subprocess.call(['ffmpeg', '-i', mp3_link,
+			 'test.wav'])
 	
 	st.markdown("mp3s *uploaded locally* can be downloaded as a wav file from the audio player **(vertical elipses > 'Download')**, "
 		   "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
