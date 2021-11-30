@@ -61,7 +61,7 @@ if page == 'Audio Conversion':
 	else:
 		audio = st.audio(uploaded_file)
 		
-	subprocess.call(['ffmpeg.py', '-i', mp3_link,
+	subprocess.call(['https://github.com/aouriri/pytranscriber/blob/fb081dc8d4e8ba1006ec8b64ce8ea8cf7a1b7bfd/ffmpeg.py', '-i', mp3_link,
 			 'test.wav'])
 	
 	st.markdown("mp3s *uploaded locally* can be downloaded as a wav file from the audio player **(vertical elipses > 'Download')**, "
