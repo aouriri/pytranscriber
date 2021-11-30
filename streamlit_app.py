@@ -59,7 +59,7 @@ if page == 'Audio Conversion':
 		mp3_file = uploaded_file
 	
 	try:
-		with open(mp3_file) as input:
+		with open(mp3_link) as input:
 			st.text(input.read())
 	except FileNotFoundError:
 		st.error('File not found.')
