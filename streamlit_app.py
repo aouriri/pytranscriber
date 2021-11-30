@@ -55,9 +55,9 @@ if page == 'Audio Conversion':
 	else:
 		audio = st.audio(uploaded_file)
 		
-	st.markdown("Preview uploaded file."
-		    
-		   "mp3s uploaded locally can be downloaded as a wav file from the audio player **(vertical elipses > 'Download')**, "
+	st.text("Preview uploaded file.")
+	
+	st.markdown("mp3s uploaded locally can be downloaded as a wav file from the audio player **(vertical elipses > 'Download')**, "
 		   "mp3s from a URL must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
 		   )
 		    
