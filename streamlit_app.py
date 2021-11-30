@@ -60,7 +60,10 @@ if page == 'Audio Conversion':
 	
 	st.markdown("---")	
 	
-	st.audio(mp3_file) # fix to clear error of no input at start; wait function?
+	if len(mp3_link) != 0:
+		audio = file_selector(mp3_link)
+	
+	st.audio(mp3_file)
 	st.markdown("Preview uploaded file. Audio file can be downloaded as wav file by clicking the vertical elipses on the player and selecting 'Download'.")
 		
 elif page == 'Speech to Text Transcription':
