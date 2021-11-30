@@ -44,6 +44,13 @@ if page == 'Audio Conversion':
 	
 	st.title(":arrows_clockwise: mp3 to wav converter")
 	
+	time_to_wait = 10
+	time_counter = 0
+	while not os.path.exists(mp3_link):
+		time.sleep(1)
+		time_counter += 1
+		if time_counter > time_to_wait:break	
+	
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 	mp3_link = st.text_input("or input mp3 URL")
 	
@@ -58,14 +65,7 @@ if page == 'Audio Conversion':
 	else:
 		mp3_file = uploaded_file
 	
-	st.markdown("---")
-	
-	time_to_wait = 10
-	time_counter = 0
-	while not os.path.exists(mp3_link):
-		time.sleep(1)
-		time_counter += 1
-		if time_counter > time_to_wait:break		
+	st.markdown("---")	
 	
 	st.audio(mp3_file) # fix to clear error of no input at start; wait function?
 	st.markdown("Preview uploaded file. Audio file can be downloaded as wav file by clicking the vertical elipses on the player and selecting 'Download'.")
