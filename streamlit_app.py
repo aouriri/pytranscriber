@@ -47,11 +47,11 @@ if page == 'Audio Conversion':
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 	mp3_link = st.text_input("or input mp3 URL")
 	
-	#with st.file_input() as input:
-	#	if input == None:
-	#		st.warning('No file selected.')
-	#	else:
-	#		file_contents = input.read()
+	with st.file_uploader() as input:
+		if input == None:
+			st.warning('No file selected.')
+		else:
+			file_contents = input.read()
 	
 	if len(mp3_link) >1:
 		source = url.urlopen(mp3_link)
