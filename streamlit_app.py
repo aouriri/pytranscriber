@@ -3,7 +3,6 @@ import numpy as np
 import requests
 import time
 import speech_recognition as sr
-import urllib3 as url
 import streamlit as st
 import spacy
 import spacy_streamlit
