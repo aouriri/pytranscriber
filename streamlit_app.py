@@ -61,9 +61,10 @@ if page == 'Audio Conversion':
 	st.markdown("---")	
 	
 	if len(mp3_link) != 0:
-		audio = file_selector(mp3_link)
-	
-	st.audio(mp3_file)
+		audio = st.audio(mp3_link)
+	else:
+		audio = st.audio(uploaded_file)
+		
 	st.markdown("Preview uploaded file. Audio file can be downloaded as wav file by clicking the vertical elipses on the player and selecting 'Download'.")
 		
 elif page == 'Speech to Text Transcription':
