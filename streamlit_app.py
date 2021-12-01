@@ -71,12 +71,14 @@ if page == 'Audio Conversion':
 	#wavIO=BytesIO()
 	#conv_audio = seg.export(wavIO, format="wav")
 	
-	mp3 = AudioSegment.from_mp3(mp3_link)
-	conv_audio = mp3.export(mp3_link, format="wav")
+	converted_audio = io.BytesIO()
+        sound = AudioSegment.from_mp3(mp3_link)
+        sound.export(converted_audio, format="wav")
+        converted_audio.seek(0)
 	
 	st.download_button(
 		label="Convert!",
-		data=conv_audio,
+		data=converted_audio,
 		file_name='convaudio.wav',
 	)
 	
