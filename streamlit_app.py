@@ -12,6 +12,7 @@ import streamlit as st
 import spacy
 import spacy_streamlit
 from bs4 import BeautifulSoup
+from spacy import displacy
 from os import path
 from pydub import AudioSegment
 from io import BytesIO
@@ -117,7 +118,7 @@ else:
 			    "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_} 
 			   for ent in doc.ents],
 		  "title": None}
-	spacy.displacy.serve(params, style="ent", manual=True)
+	displacy.serve(params, style="ent", manual=True)
 
 	#spacy_streamlit.visualize_ner(
 	#	doc,
