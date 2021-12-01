@@ -69,9 +69,13 @@ if page == 'Audio Conversion':
 	seg=seg.set_frame_rate(vosk_sample_rate)
 	seg=seg.set_channels(1)
 	wavIO=BytesIO()
-	seg.export(wavIO, format="wav")
+	conv_audio = seg.export(wavIO, format="wav")
 	
-	return wavIO.getvalue()
+	st.download_button(
+		label="Convert!",
+		data=conv_audio,
+		file_name='convaudio.wav',
+	)
 	
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
