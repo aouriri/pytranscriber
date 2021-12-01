@@ -14,5 +14,5 @@ spacyopentapioca
 SpeechRecognition>=3.8.1
 urllib3
 subprocess.run
-json
+jsonlib
 ibm_watson
