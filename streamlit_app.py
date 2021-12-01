@@ -119,7 +119,7 @@ else:
 			    "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_} 
 			   for ent in doc.ents],
 		  "title": None}
-	displacy.serve(params, style="ent")
+	spacy.displacy.serve(params, style="ent", manual=True)
 	
 	#spacy_streamlit.visualize_ner(
 	#	doc,
@@ -144,4 +144,4 @@ else:
 			**DATE:**        Absolute or relative dates or periods.
 	 """)
 	
-	st.text(f'Analyzed using spaCy model {spacy_model}.')
+	st.text(f'Analyzed using spaCy model {nlp}.')
