@@ -72,14 +72,14 @@ if page == 'Audio Conversion':
 	#conv_audio = seg.export(wavIO, format="wav")
 	
 	AudioSegment.converter = "ffmpeg-4.4.1-essentials_build.7z"
-	converted_audio = io.BytesIO()
-	sound = AudioSegment.from_mp3(mp3_link)
-	sound.export(converted_audio, format="wav")
-	converted_audio.seek(0)
+	sound = pydub.AudioSegment.from_mp3(BytesIO(mp3_link))
+	sound.export("_", format="wav")
+	sound.seek(0)
+	sound = sound.read()
 	
 	st.download_button(
 		label="Convert!",
-		data=converted_audio,
+		data=csound,
 		file_name='convaudio.wav',
 	)
 	
