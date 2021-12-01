@@ -5,7 +5,7 @@ import requests
 import time
 import speech_recognition as sr
 import os
-import subprocess
+import pydub
 import urllib.request as url
 import streamlit as st
 import spacy
