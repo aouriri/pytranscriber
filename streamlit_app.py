@@ -7,6 +7,7 @@ import speech_recognition as sr
 import os
 import pydub
 import subprocess
+import StringIO
 import urllib.request as url
 import streamlit as st
 import spacy
@@ -73,14 +74,17 @@ if page == 'Audio Conversion':
 	#conv_audio = seg.export(wavIO, format="wav")
 	
 	AudioSegment.converter = "ffmpeg-4.4.1-essentials_build.7z"
-	sound = pydub.AudioSegment.from_mp3(BytesIO(mp3_link))
-	sound.export("_", format="wav")
-	sound.seek(0)
-	sound = sound.read()
+	sound = pydub.AudioSegment.from_file(mp3_link)
+	output = StringIO.StringIO()
+	convaudio = sound.export(output, format="wav")
+	#sound = pydub.AudioSegment.from_mp3(BytesIO(mp3_link))
+	#sound.export("_", format="wav")
+	#sound.seek(0)
+	#sound = sound.read()
 	
 	st.download_button(
 		label="Convert!",
-		data=sound,
+		data=convaudio,
 		file_name='convaudio.wav',
 	)
 	
