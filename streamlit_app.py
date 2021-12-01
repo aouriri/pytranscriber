@@ -65,14 +65,14 @@ if page == 'Audio Conversion':
 		   "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
 		   )
 	
-	seg = AudioSegment.from_mp3(BytesIO(mp3_link), format="mp3")
-	seg = seg.set_frame_rate(vosk_sample_rate)
-	seg = seg.set_channels(1)
-	wavIO=BytesIO()
-	conv_audio = seg.export(wavIO, format="wav")
+	#seg = AudioSegment.from_mp3(BytesIO(mp3_link), format="mp3")
+	#seg = seg.set_frame_rate(vosk_sample_rate)
+	#seg = seg.set_channels(1)
+	#wavIO=BytesIO()
+	#conv_audio = seg.export(wavIO, format="wav")
 	
 	mp3 = AudioSegment.from_mp3(mp3_link)
-        conv_audio = mp3.export(mp3_link, format="wav")
+	conv_audio = mp3.export(mp3_link, format="wav")
 	
 	st.download_button(
 		label="Convert!",
