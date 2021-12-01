@@ -6,6 +6,7 @@ import time
 import speech_recognition as sr
 import os
 import pydub
+import subprocess
 import urllib.request as url
 import streamlit as st
 import spacy
