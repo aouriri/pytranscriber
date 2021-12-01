@@ -13,7 +13,7 @@ import spacy_streamlit
 from bs4 import BeautifulSoup
 from os import path
 from pydub import AudioSegment
-
+from io import BytesIO
 
 app_formal_name = 'Audio Conversion//Speech to Text//NER'
 
@@ -64,6 +64,15 @@ if page == 'Audio Conversion':
 	st.markdown("mp3s *uploaded locally* can be downloaded as a wav file from the audio player **(vertical elipses > 'Download')**, "
 		   "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
 		   )
+	
+	seg=AudioSegment.from_mp3(BytesIO(mp3_link))
+	seg=seg.set_frame_rate(vosk_sample_rate)
+	seg=seg.set_channels(1)
+	wavIO=BytesIO()
+	seg.export(wavIO, format="wav")
+	return wavIO.getvalue()
+
+	
 	
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
