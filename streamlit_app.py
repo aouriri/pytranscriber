@@ -50,7 +50,7 @@ if page == 'Audio Conversion':
 	mp3_link = st.text_input("or input mp3 URL")
 	
 	if len(mp3_link) >1:
-		source = url.urlopen(mp3_link)
+		source = url.urlopen(mp3_link).read()
 		
 	st.markdown("---")	
 	
