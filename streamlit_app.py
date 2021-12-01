@@ -67,28 +67,6 @@ if page == 'Audio Conversion':
 		   "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
 		   )
 	
-	#seg = AudioSegment.from_mp3(BytesIO(mp3_link), format="mp3")
-	#seg = seg.set_frame_rate(vosk_sample_rate)
-	#seg = seg.set_channels(1)
-	#wavIO=BytesIO()
-	#conv_audio = seg.export(wavIO, format="wav")
-	
-	AudioSegment.converter = "ffmpeg-4.4.1-essentials_build.7z"
-	data = open({mp3_link}, 'rb').read()
-	#sound = pydub.AudioSegment.from_file(io.BytesIO(data), format="mp3")
-	#output = StringIO.StringIO()
-	#convaudio = sound.export(output, format="wav")
-	sound = pydub.AudioSegment.from_mp3(BytesIO(data), format="mp3")
-	sound.export("_", format="wav")
-	sound.seek(0)
-	sound = sound.read()
-	
-	st.download_button(
-		label="Convert!",
-		data=sound,
-		file_name='convaudio.wav',
-	)
-	
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
 	st.title('Speech to Text Transcription')
