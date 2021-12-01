@@ -107,7 +107,7 @@ else:
 	
 	#spacy_model = "en_core_web_sm"
 	nlp = spacy.load("en_core_web_sm")
-	nlp.add_pipe('opentapioca', config={"url": OpenTapiocaAPI})
+	nlp.add_pipe('opentapioca')
 	text = st.text_area("Text to analyze (Default text can be used but, I'm okay with change.)", DEFAULT_TEXT, height=200)
 	doc = nlp(text)
 	params = {"text": doc.text,
@@ -118,7 +118,7 @@ else:
 			    "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_} 
 			   for ent in doc.ents],
 		  "title": None}
-	displacy.serve(params, style="ent", manual=True)
+	displacy.serve(params, style="ent")
 
 	#spacy_streamlit.visualize_ner(
 	#	doc,
