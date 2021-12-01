@@ -132,4 +132,4 @@ else:
 			**DATE:**        Absolute or relative dates or periods.
 	 """)
 	
-	st.text(f'Analyzed using spaCy model {nlp}.')
+	st.text(f'Analyzed using spaCy model {spacy_model}.')
