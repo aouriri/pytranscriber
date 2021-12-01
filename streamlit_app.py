@@ -72,7 +72,7 @@ if page == 'Audio Conversion':
 	#conv_audio = seg.export(wavIO, format="wav")
 	
 	AudioSegment.converter = "ffmpeg-4.4.1-essentials_build.7z"
-	sound = pydub.AudioSegment.from_mp3(BytesIO(mp3_link))
+	sound = pydub.AudioSegment.from_mp3(BytesIO(source))
 	sound.export("_", format="wav")
 	sound.seek(0)
 	sound = sound.read()
