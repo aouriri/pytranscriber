@@ -71,8 +71,6 @@ if page == 'Audio Conversion':
 	wavIO=BytesIO()
 	seg.export(wavIO, format="wav")
 	return wavIO.getvalue()
-
-	
 	
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
