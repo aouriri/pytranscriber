@@ -71,6 +71,7 @@ if page == 'Audio Conversion':
 	#wavIO=BytesIO()
 	#conv_audio = seg.export(wavIO, format="wav")
 	
+	AudioSegment.converter = "ffmpeg-4.4.1-essentials_build.7z"
 	converted_audio = io.BytesIO()
 	sound = AudioSegment.from_mp3(mp3_link)
 	sound.export(converted_audio, format="wav")
