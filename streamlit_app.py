@@ -107,7 +107,7 @@ else:
 	
 	#spacy_model = "en_core_web_sm"
 	nlp = spacy.load("en_core_web_sm")
-	nlp.add_pipe('opentapioca')
+	nlp.add_pipe('opentapioca', config={"url": OpenTapiocaAPI})
 	text = st.text_area("Text to analyze (Default text can be used but, I'm okay with change.)", DEFAULT_TEXT, height=200)
 	doc = nlp(text)
 	params = {"text": doc.text,
