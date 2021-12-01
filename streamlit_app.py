@@ -70,6 +70,7 @@ if page == 'Audio Conversion':
 	seg=seg.set_channels(1)
 	wavIO=BytesIO()
 	seg.export(wavIO, format="wav")
+	
 	return wavIO.getvalue()
 	
 elif page == 'Speech to Text Transcription':
