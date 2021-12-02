@@ -66,8 +66,8 @@ if page == 'Audio Conversion':
 			
 	st.markdown("mp3s *uploaded locally* can be downloaded as a wav file from the audio player **(vertical elipses > 'Download')**, "
 		    "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert!'** button below to download the converted mp3."
-		    "**PLEASE NOTE:** The 'Convert!' button is *only* available when URL is used."
 		   )
+	st.markdown("**PLEASE NOTE:** The 'Convert!' button is *only* available when URL is used.")
 	
 	if len(mp3_link) != 0:
 		r = requests.get(mp3_link, allow_redirects=True)
