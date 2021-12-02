@@ -68,6 +68,7 @@ if page == 'Audio Conversion':
 		   "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
 		   )
 	
+	mp3_link = st.text_input("or input mp3 URL")
 	r = requests.get(mp3_link, allow_redirects=True)
 	open('convaudio.wav', 'wb').write(r.content)
 	    
