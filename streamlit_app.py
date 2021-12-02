@@ -1,9 +1,6 @@
 # clean up unnecessary imports
 import io
-import numpy as np
 import requests
-import time
-import speech_recognition as sr
 import os
 import pydub
 import subprocess
@@ -13,6 +10,7 @@ import spacy
 import spacy_streamlit
 from bs4 import BeautifulSoup
 from spacy import displacy
+from spacy_streamlit import visualize_ner
 from os import path
 from pydub import AudioSegment
 from io import BytesIO
