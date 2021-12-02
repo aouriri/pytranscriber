@@ -73,13 +73,12 @@ if page == 'Audio Conversion':
 		open('convaudio.wav', 'wb').write(r.content)
 		
 		with open('convaudio.wav', 'rb') as file:
-		btn = st.download_button(
-			label="Convert!",
-			data=file,
-			file_name="newaudio.wav",
-			mime="audio/wav"
-		)
-
+			btn = st.download_button(
+				label="Convert!",
+				data=file,
+				file_name="newaudio.wav",
+				mime="audio/wav"
+			)
 	else:
 		pass
 
