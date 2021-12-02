@@ -69,7 +69,7 @@ if page == 'Audio Conversion':
 		   )
 	
 	r = requests.get(mp3_link, allow_redirects=True)
-	converted_audio = open('convaudio.wav', 'wb').write(r.content)
+	converted_audio = open('convaudio.wav', 'rb').write(r.content)
 	
 	st.download_button(
 		label="Convert!",
