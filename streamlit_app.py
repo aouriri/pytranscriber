@@ -68,8 +68,11 @@ if page == 'Audio Conversion':
 		   "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
 		   )
 	
-	r = requests.get(mp3_link, allow_redirects=True)
-	open('convaudio.wav', 'wb').write(r.content)
+	if len(mp3_link) != 0:
+		r = requests.get(mp3_link, allow_redirects=True)
+		open('convaudio.wav', 'wb').write(r.content)
+	else:
+		pass
 	
 	
 	with open('convaudio.wav', 'rb') as file:
