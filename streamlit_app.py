@@ -68,13 +68,16 @@ if page == 'Audio Conversion':
 		   "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
 		   )
 	
-	r = requests.get('https://libraries.ucsd.edu/farmworkermovement/media/oral_history/music/HuelgaDVD.mp3', allow_redirects=True)
-	convsound = open('convaudio.wav', 'wb').write(r.content)
+	r = requests.get(mp3_link, allow_redirects=True)
+	open('convaudio.wav', 'wb').write(r.content)
 	    
-	st.download_button(
-		label="Convert!",
-		data=convsound,
-	)
+	with open('convaudio.wav', 'wb').write(r.content) as file:
+		btn = st.download_button(
+			label="Convert!",
+			data=file,
+			file_name="newaudio.wav",
+			mime="audio/wav"
+		)
 	
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
