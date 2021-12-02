@@ -75,7 +75,7 @@ if page == 'Audio Conversion':
 		label="Convert!",
 		data=converted_audio,
 		file_name='convaudio.wav',
-		mime=None,
+		mime='audio/wav',
 	)
 
 elif page == 'Speech to Text Transcription':
