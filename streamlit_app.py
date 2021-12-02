@@ -86,34 +86,34 @@ if page == 'Audio Conversion':
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
 	st.title('Speech to Text Transcription')
+	st.markdown("Speech to text using ```Python``` can be done 'out of the box' on shorter audio (limited to 50 requests per day) using Google's Web Speech API. "
+		    "The code for that is included below (click to expand!). For larger audio files, an API must be used. "
+		    "For this project, I am using [IBM's Speech to Text](https://www.ibm.com/cloud/watson-speech-to-text) and its cloud. "
+		    "Its 'Lite' option includes 500 minutes of *free* speech recognition a month. "
+		    "If you choose to use another recognition API, **please fork/update code to reflect that.** "
+		    "**The attaching of my IBM Cloud account is for demonstrative purposes.**"
+		   )
+	
 	fileObject = st.file_uploader("Please upload your file")
 	
 	st.markdown("---")
 	st.text_area('Transcribed text', " ")
 	st.markdown("---")
-
-	st.markdown("Speech to text using ```Python``` can be done 'out of the box' on shorter audio (limited to 50 requests per day) using Google's Web Speech API. " 
-		"The code for that is included below. For larger audio files, an API must be used. "
-		"For this project, I am using [IBM's Speech to Text](https://www.ibm.com/cloud/watson-speech-to-text) and its cloud. " 
-		"Its 'Lite' option includes 500 minutes of *free* speech recognition a month. "
-		"If you choose to use another recognition API, **please fork/update code to reflect that.** "
-		"**The attaching of my IBM Cloud account is for demonstrative purposes.**"
-	)
 	
-	code = ''' # Be sure to (pip) install SpeechRecognition before starting!
-	import speech_recognition as sr
-	
-	r = sr.Recognizer()
-	r.recognize_google()
-	harvard = sr.AudioFile('harvard.wav') # Example local audio file
-	with harvard as source:
-		audio = r.record(source)
-	r.recognize_google(audio)
-	f = open("transcription.txt", "a")
-	f.write(r.recognize_google(audio))
-	f.write(" ")
-	f.close()'''
-	st.code(code, language='python')
+	with st.expander("Entity label explanation"):
+		code = ''' # Be sure to (pip) install SpeechRecognition before starting!
+		import speech_recognition as sr
+		r = sr.Recognizer()
+		r.recognize_google()
+		harvard = sr.AudioFile('harvard.wav') # Example local audio file
+		with harvard as source:
+			audio = r.record(source)
+		r.recognize_google(audio)
+		f = open("transcription.txt", "a")
+		f.write(r.recognize_google(audio))
+		f.write(" ")
+		f.close()'''
+		st.code(code, language='python')
 	
 else:
 	# Display the NER content here
