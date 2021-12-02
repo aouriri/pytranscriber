@@ -68,7 +68,7 @@ if page == 'Audio Conversion':
 		   "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert'** button below to download the converted mp3."
 		   )
 	
-	r = requests.get(mp3_link, allow_redirects=True)
+	r = requests.get('https://libraries.ucsd.edu/farmworkermovement/media/oral_history/music/HuelgaDVD.mp3', allow_redirects=True)
 	convsound = open('convaudio.wav', 'wb').write(r.content)
 	    
 	st.download_button(
