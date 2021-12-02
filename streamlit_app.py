@@ -100,7 +100,7 @@ elif page == 'Speech to Text Transcription':
 	st.text_area('Transcribed text', " ")
 	st.markdown("---")
 	
-	with st.expander("Entity label explanation"):
+	with st.expander("Speech Recognition (Basic) Code"):
 		code = ''' # Be sure to (pip) install SpeechRecognition before starting!
 		import speech_recognition as sr
 		r = sr.Recognizer()
