@@ -71,7 +71,7 @@ if page == 'Audio Conversion':
 	r = requests.get(mp3_link, allow_redirects=True)
 	open('convaudio.wav', 'wb').write(r.content)
 	    
-	with open('convaudio.wav', 'wb').write(r.content) as file:
+	with open('convaudio.wav', 'wb') as file:
 		btn = st.download_button(
 			label="Convert!",
 			data=file,
