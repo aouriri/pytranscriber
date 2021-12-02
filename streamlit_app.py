@@ -69,14 +69,16 @@ if page == 'Audio Conversion':
 		   )
 	
 	r = requests.get(mp3_link, allow_redirects=True)
-	converted_audio = open('convaudio.wav', 'rb').write(r.content)
+	open('convaudio.wav', 'wb')
 	
-	st.download_button(
-		label="Convert!",
-		data=converted_audio,
-		file_name='convaudio.wav',
-		mime='audio/wav',
-	)
+	with open('convaudio.wav', 'wb') as file:
+		btn = st.download_button(
+			label="Convert!",
+			data=file,
+			file_name="newaudio.wav",
+			mime="audio/wav"
+		)
+
 
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
