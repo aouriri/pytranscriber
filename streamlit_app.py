@@ -125,8 +125,16 @@ else:
 	nlp.add_pipe('opentapioca')
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
 	doc = nlp(text)
-	visualize_ner(doc, labels=nlp.get_pipe("ner").labels)
-	
+
+	params = {"text": doc.text,
+		  "ents": [{"start": ent.start_char,
+			    "end": ent.end_char,
+			    "label": ent.label_,
+			    "kb_id": ent.kb_id_,
+			    "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_} 
+			   for ent in doc.ents],
+		  "title": None}
+	spacy_streamlit.visualize_ner(params)
 	#spacy_streamlit.visualize_ner(
 	#	doc,
 	#	labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
