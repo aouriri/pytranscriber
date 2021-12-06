@@ -3,8 +3,6 @@ requests>=2.24.0
 streamlit>=0.86.0
 spacy>=3.0.0,<4.0.0
 spacy-streamlit
-pandas
-scipy
 soundfile
 pydub
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.0.0/en_core_web_sm-3.0.0-py3-none-any.whl#egg=en_core_web_sm==3.0.0
@@ -13,5 +11,4 @@ https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.0.
 spacyopentapioca
 SpeechRecognition>=3.8.1
 urllib3
-subprocess.run
 ibm_watson
