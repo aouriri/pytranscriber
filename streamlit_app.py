@@ -103,7 +103,7 @@ elif page == 'Speech to Text Transcription':
 		import speech_recognition as sr
 		r = sr.Recognizer()
 		r.recognize_google()
-		harvard = sr.AudioFile('harvard.wav') # Example local audio [file](https://github.com/realpython/python-speech-recognition/blob/0c07b810808c01144a9611faf84739f24513184e/audio_files/harvard.wav)
+		harvard = sr.AudioFile('harvard.wav') # Example local audio file
 		with harvard as source:
 			audio = r.record(source)
 		r.recognize_google(audio)
