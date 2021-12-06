@@ -3,18 +3,15 @@ import io
 import requests
 import os
 import pydub
-import subprocess
 import urllib.request as url
 import streamlit as st
 import spacy
 import spacy_streamlit
 from bs4 import BeautifulSoup
-from spacy import displacy
 from spacy_streamlit import visualize_ner
 from os import path
 from pydub import AudioSegment
-from io import BytesIO
-from io import StringIO
+
 
 app_formal_name = 'Audio Conversion//Speech to Text//NER'
 
