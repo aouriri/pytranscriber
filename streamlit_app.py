@@ -128,7 +128,7 @@ else:
 			    "end": ent.end_char,
 			    "label": ent.label_,
 			    "kb_id": ent.kb_id_,
-			    "kb_url_template": f"https://www.wikidata.org/wiki/{"kb_id"}"}
+			    "kb_url_template": f"https://www.wikidata.org/wiki/{ent.kb_id_}"}
 			   for ent in doc.ents],
 		  "title": "Person, Places and Other Things"}
 	displacy.serve(doc, style="ent", options=options)
