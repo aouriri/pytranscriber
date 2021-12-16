@@ -9,6 +9,7 @@ import spacy
 import spacy_streamlit
 from bs4 import BeautifulSoup
 from spacy_streamlit import visualize_ner
+from spacy import displacy
 from os import path
 from pydub import AudioSegment
 
