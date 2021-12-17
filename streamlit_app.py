@@ -124,8 +124,7 @@ else:
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
 	doc = spacy_streamlit.process_text(spacy_model, text)
 	
-	options = {"text": doc,
-		  "ents": [{"start": ent.start_char,
+	options = {"ents": [{"start": ent.start_char,
 			    "end": ent.end_char,
 			    "label": ent.label_,
 			    "kb_id": ent.kb_id_,
