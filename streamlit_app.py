@@ -128,7 +128,7 @@ else:
 		doc,
 		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
 		show_table=False,
-		title="Person, Places and Other Things"
+		title="Person, Places and Other Things",
 	)
 
 	with st.expander("Entity label explanation"):
