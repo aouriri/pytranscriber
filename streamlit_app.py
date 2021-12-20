@@ -12,6 +12,9 @@ from spacy_streamlit import visualize_ner
 from spacy import displacy
 from os import path
 from pydub import AudioSegment
+from ibm_watson import SpeechToTextV1
+from ibm_watson.websocket import RecognizeCallback, AudioSource 
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 
 app_formal_name = 'Audio Conversion//Speech to Text//NER'
@@ -90,7 +93,7 @@ elif page == 'Speech to Text Transcription':
 		    "**The attaching of my IBM Cloud account is for demonstrative purposes.**"
 		   )
 	
-	fileObject = st.file_uploader("Please upload your file")
+	fileObject = st.file_uploader("Please upload your file", type=["wav"])
 	
 	st.markdown("---")
 	st.text_area('Transcribed text', " ")
