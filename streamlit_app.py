@@ -136,7 +136,7 @@ else:
 			   "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_}
 			   for ent in doc.ents],
 		  "title": "Person, Places and Other Things"}
-	spacy_streamlit.visualize_ner(params, labels=nlp.get_pipe("ner").labels, manual=True)
+	spacy_streamlit.visualize_ner(params, labels=nlp.get_pipe("ner").labels)
 
 	#spacy_streamlit.visualize_ner(
 	#	doc,
