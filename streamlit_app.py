@@ -1,5 +1,5 @@
 # clean up unnecessary imports
-import config
+import config.py
 import io
 import requests
 import os
