@@ -1,4 +1,5 @@
 # clean up unnecessary imports
+import config
 import io
 import requests
 import os
@@ -13,7 +14,7 @@ from spacy import displacy
 from os import path
 from pydub import AudioSegment
 from ibm_watson import SpeechToTextV1
-from ibm_watson.websocket import RecognizeCallback, AudioSource 
+from ibm_watson.websocket import RecognizeCallback, AudioSource
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 
@@ -37,7 +38,7 @@ page = st.sidebar.selectbox('Select page',
   ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
 st.sidebar.markdown("-----------------------------------")
 st.sidebar.markdown(
-	'Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow.'    
+	'Made with 💜 by [@aouriri (she/her)](https://github.com/aouriri) as a [LEADING](https://cci.drexel.edu/mrc/leading/) fellow.'
 )
 st.sidebar.markdown(
 	'**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)'
@@ -45,33 +46,33 @@ st.sidebar.markdown(
 
 if page == 'Audio Conversion':
 # Display the conversion content here
-	
+
 	st.title(":arrows_clockwise: mp3 to wav converter")
-	
+
 	uploaded_file = st.file_uploader("Upload mp3 file", type=["mp3"])
 	mp3_link = st.text_input("or input mp3 URL")
-	
+
 	if len(mp3_link) >1:
 		source = url.urlopen(mp3_link).read()
-		
-	st.markdown("---")	
-	
+
+	st.markdown("---")
+
 	st.text("Preview selected file.")
-	
+
 	if len(mp3_link) != 0:
 		audio = st.audio(mp3_link)
 	else:
 		audio = st.audio(uploaded_file)
-			
+
 	st.markdown("mp3s *uploaded locally* can be downloaded as a wav file from the audio player **(vertical elipses > 'Download')**, "
 		    "mp3s from a *URL* must be converted, then downloaded. Click the **'Convert!'** button below to download the converted mp3."
 		   )
 	st.markdown("**PLEASE NOTE:** The 'Convert!' button is *only* available when URL is used.")
-	
+
 	if len(mp3_link) != 0:
 		r = requests.get(mp3_link, allow_redirects=True)
 		open('convaudio.wav', 'wb').write(r.content)
-		
+
 		with open('convaudio.wav', 'rb') as file:
 			btn = st.download_button(
 				label="Convert!",
@@ -92,13 +93,13 @@ elif page == 'Speech to Text Transcription':
 		    "If you choose to use another recognition API, **please fork/update code to reflect that.** "
 		    "**The attaching of my IBM Cloud account is for demonstrative purposes.**"
 		   )
-	
+
 	fileObject = st.file_uploader("Please upload your file", type=["wav"])
-	
+
 	st.markdown("---")
 	st.text_area('Transcribed text', " ")
 	st.markdown("---")
-	
+
 	with st.expander("Speech Recognition (Basic) Code"):
 		code = ''' # Be sure to (pip) install SpeechRecognition before starting!
 		import speech_recognition as sr
@@ -113,20 +114,20 @@ elif page == 'Speech to Text Transcription':
 		f.write(" ")
 		f.close()'''
 		st.code(code, language='python')
-	
+
 else:
 	# Display the NER content here
 	# Example using the components provided by spacy-streamlit in an existing app.
 	# Remove components out of spacy/streamlit wrapper to test spacy opentapioca
 	st.title('Named Entity Recognition')
-	
+
 	spacy_model = "en_core_web_sm"
-	
+
 	DEFAULT_TEXT = """Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002."""
-	
+
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
 	doc = spacy_streamlit.process_text(spacy_model, text)
-	
+
 	spacy_streamlit.visualize_ner(
 		doc,
 		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
@@ -150,5 +151,5 @@ else:
 
 			**DATE:**        Absolute or relative dates or periods.
 	 """)
-	
+
 	st.text(f'Analyzed using spaCy model {spacy_model}.')
