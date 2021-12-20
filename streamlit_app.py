@@ -136,7 +136,7 @@ else:
 			   "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_}
 			   for ent in doc.ents],
 		  "title": "Person, Places and Other Things"}
-	displacy.render(params, style="ent", manual=True)
+	spacy_streamlit.visualize_ner(params, style="ent", manual=True)
 
 	#spacy_streamlit.visualize_ner(
 	#	doc,
