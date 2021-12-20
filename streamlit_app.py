@@ -129,7 +129,7 @@ else:
 	doc = nlp(text)
 	
 	params = {"text": doc.text,
-		  "ents": ["start": ent.start_char,
+		  "ents": [{"start": ent.start_char,
 			   "end": ent.end_char,
 			   "label": ent.label_,
 			   "kb_id": ent.kb_id_,
