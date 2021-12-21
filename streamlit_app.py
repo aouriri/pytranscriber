@@ -134,21 +134,21 @@ else:
 		title="Person, Places and Other Things",
 	)
 
-	with st.expander("Entity label explanation"):
-		st.write("""
-			**PERSON:**      People, including fictional.
+	#with st.expander("Entity label explanation"):
+	#	st.write("""
+	#		**PERSON:**      People, including fictional.
 
-			**NORP:**        Nationalities or religious or political groups.
+	#		**NORP:**        Nationalities or religious or political groups.
 
-			**ORG:**         Companies, agencies, institutions, etc.
+	#		**ORG:**         Companies, agencies, institutions, etc.
 
-			**GPE:**         Countries, cities, states.
+	#		**GPE:**         Countries, cities, states.
 
-			**LOC:**         Non-GPE locations, mountain ranges, bodies of water.
+	#		**LOC:**         Non-GPE locations, mountain ranges, bodies of water.
 
-			**LAW:**         Named documents made into laws.
+	#		**LAW:**         Named documents made into laws.
 
-			**DATE:**        Absolute or relative dates or periods.
-	 """)
+	#		**DATE:**        Absolute or relative dates or periods.
+	# """)
 
-	st.text(f'Analyzed using spaCy model {spacy_model}.')
+	#st.text(f'Analyzed using spaCy model {spacy_model}.')
