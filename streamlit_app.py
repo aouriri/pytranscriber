@@ -115,12 +115,16 @@ elif page == 'Speech to Text Transcription':
 else:
 	# Display the NER content here
 	# Example using the components provided by spacy-streamlit in an existing app.
+	import streamlit as st
+	import spacy
+	import spacy_streamlit
+	
 	st.title('Named Entity Recognition')
 	
 	DEFAULT_TEXT = """Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002."""
 	
 	spacy_model = "en_core_web_sm"
-	nlp = spacy.load(spacy_model)
+	spacy.load(spacy_model)
 	nlp.add_pipe("opentapioca")
 	nlp.to_disk("/tmp/en_core_web_sm_ot")
 	
