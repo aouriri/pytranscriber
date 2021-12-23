@@ -41,6 +41,12 @@ st.sidebar.markdown(
 	'**Fellowship site:** University of California - San Diego (UCSD) [Library](https://library.ucsd.edu/), **Project name:** [Transformation and Enhancement of the Farmworker Movement Collection](https://libraries.ucsd.edu/farmworkermovement/)'
 )
 
+st.sidebar.markdown("-----------------------------------")
+
+st.sidebar.markdown(
+	'Institute of Museum and Library Services (IMLS), LB21 LEADING project: RE-246450-OLS-20'
+)
+
 if page == 'Audio Conversion':
 # Display the conversion content here
 
