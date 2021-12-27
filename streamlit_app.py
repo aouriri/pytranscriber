@@ -88,6 +88,11 @@ if page == 'Audio Conversion':
 
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
+	import config
+	authenticator = IAMAuthenticator(config.apikey)
+	stt = SpeechToTextV1(authenticator=authenticator)
+	stt.set_service_url(config.url)
+
 	st.title('Speech to Text Transcription')
 	st.markdown("Speech to text using ```Python``` can be done 'out of the box' on shorter audio (limited to 50 requests per day) using Google's Web Speech API. "
 		    "The code for that is included below (click to expand!). For larger audio files, an API must be used. "
@@ -99,8 +104,23 @@ elif page == 'Speech to Text Transcription':
 
 	fileObject = st.file_uploader("Please upload your file", type=["wav"])
 
+	with open(fileObject, 'rb') as f:
+		res = stt.recognize(audio=f, content_type='audio/wav', model='en-US_NarrowbandModel', word_confidence=False).get_result()
+
+	def fun(res):
+    if 'transcript' in res:
+        yield res['transcript']
+    for k in res:
+        if isinstance(res[k], list):
+            for i in res[k]:
+                for j in fun(i):
+                    yield j
+
+  list(fun(res))
+  output = list(fun(res))        
+
 	st.markdown("---")
-	st.text_area('Transcribed text', " ")
+	st.text_area('Transcribed text', output)
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
