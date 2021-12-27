@@ -108,16 +108,15 @@ elif page == 'Speech to Text Transcription':
 		res = stt.recognize(audio=f, content_type='audio/wav', model='en-US_NarrowbandModel', word_confidence=False).get_result()
 
 	def fun(res):
-    if 'transcript' in res:
-        yield res['transcript']
-    for k in res:
-        if isinstance(res[k], list):
-            for i in res[k]:
-                for j in fun(i):
-                    yield j
-
-  list(fun(res))
-  output = list(fun(res))        
+		if 'transcript' in res:
+			yield res['transcript']
+			for k in res:
+				if isinstance(res[k], list):
+					for i in res[k]:
+						for j in fun(i):
+							yield j
+	list(fun(res))
+	output = list(fun(res))        
 
 	st.markdown("---")
 	st.text_area('Transcribed text', output)
