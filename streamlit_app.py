@@ -103,8 +103,9 @@ elif page == 'Speech to Text Transcription':
 		   )
 
 	fileObject = st.file_uploader("Please upload your file", type=["wav"])
+	wavfile = fileObject.read()
 
-	with open(fileObject, 'rb') as f:
+	with open(wavfile, 'rb') as f:
 		res = stt.recognize(audio=f, content_type='audio/wav', model='en-US_NarrowbandModel', word_confidence=False).get_result()
 
 	def fun(res):
@@ -116,7 +117,7 @@ elif page == 'Speech to Text Transcription':
 						for j in fun(i):
 							yield j
 	list(fun(res))
-	output = list(fun(res))        
+	output = list(fun(res))
 
 	st.markdown("---")
 	st.text_area('Transcribed text', output)
@@ -141,39 +142,39 @@ else:
 	# Display the NER content here
 	# Example using the components provided by spacy-streamlit in an existing app.
 	st.title('Named Entity Recognition')
-	
+
 	DEFAULT_TEXT = """Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002."""
-	
+
 	spacy_model = "en_core_web_sm"
 	nlp = spacy.load(spacy_model)
 	nlp.add_pipe("opentapioca")
 	nlp.to_disk("en_core_web_sm_ot")
-	
+
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
 	doc = spacy_streamlit.process_text("en_core_web_sm_ot", text)
-	
+
 	spacy_streamlit.visualize_ner(
 		doc,
 		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
 		show_table=False,
 		title="Person, Places and Other Things",
 	)
-	
+
 	with st.expander("Entity label explanation"):
 		st.write("""
 		**PERSON:**      People, including fictional.
-		
+
 		**NORP:**        Nationalities or religious or political groups.
-		
+
 		**ORG:**         Companies, agencies, institutions, etc.
-		
+
 		**GPE:**         Countries, cities, states.
-		
+
 		**LOC:**         Non-GPE locations, mountain ranges, bodies of water.
-		
+
 		**LAW:**         Named documents made into laws.
-		
+
 		**DATE:**        Absolute or relative dates or periods.
 		""")
-		
+
 	st.text(f'Analyzed using spaCy model {spacy_model}.')
