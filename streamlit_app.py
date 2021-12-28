@@ -104,23 +104,24 @@ elif page == 'Speech to Text Transcription':
 
 	fileObject = st.file_uploader("Please upload your file", type=["wav"])
 
-	# if fileObject is not None:
-	# 	with open(fileObject.name, 'rb') as f:
-	# 		res = stt.recognize(audio=f, content_type='audio/wav', model='en-US_NarrowbandModel', word_confidence=False).get_result()
+	# with open(join(dirname('__file__'), r'C:/Users/atsr0/Documents/WFH/LEADINGfellowship/HuelgaCesarChavez.wav'),'rb') as audio_file:
+	# 	dic = json.loads(
+	# 		json.dumps(
+	# 			service.recognize(
+	# 				audio=audio_file,
+	# 				content_type='audio/wav',
+	# 				timestamps=False,
+	# 				word_confidence=False).get_result(),
+	# 			indent=2))
 	#
-	# def fun(res):
-	# 	if 'transcript' in res:
-	# 		yield res['transcript']
-	# 		for k in res:
-	# 			if isinstance(res[k], list):
-	# 				for i in res[k]:
-	# 					for j in fun(i):
-	# 						yield j
-	# list(fun(res))
-	# output = list(fun(res))
+	# # Stores the transcribed text
+	# str = ""
+	#
+	# while bool(dic.get('results')):
+	# 	str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 
 	st.markdown("---")
-	st.text_area('Transcribed text', " ")
+	st.text_area('Transcribed text', ' ') # replace quotes with str
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
