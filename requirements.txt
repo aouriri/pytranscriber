@@ -8,7 +8,7 @@ pydub
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.0.0/en_core_web_sm-3.0.0-py3-none-any.whl#egg=en_core_web_sm==3.0.0
 https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.0.0/en_core_web_trf-3.0.0-py3-none-any.whl#egg=en_core_web_trf==3.0.0
 https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.0.0/es_core_news_sm-3.0.0-py3-none-any.whl#egg=es_core_news_sm==3.0.0
-pip install https://github.com/aouriri/pytranscriber/blob/39c5cc747a9f3513a45c6ece2aadb133ba7a7acb/en_core_web_sm-3.2.0.tar.gz
+https://github.com/aouriri/pytranscriber/blob/39c5cc747a9f3513a45c6ece2aadb133ba7a7acb/en_core_web_sm-3.2.0.tar.gz
 SpeechRecognition>=3.8.1
 urllib3
 ibm_watson
