@@ -148,11 +148,9 @@ else:
 
 	spacy_model = "en_core_web_sm"
 	nlp = spacy.load(spacy_model)
-	nlp.add_pipe("opentapioca")
-	nlp.to_disk("/tmp/en_core_web_sm_ot")
 
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
-	doc = spacy_streamlit.process_text("/tmp/en_core_web_sm_ot", text)
+	doc = spacy_streamlit.process_text(nlp, text)
 
 	spacy_streamlit.visualize_ner(
 		doc,
