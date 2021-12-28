@@ -103,9 +103,8 @@ elif page == 'Speech to Text Transcription':
 		   )
 
 	fileObject = st.file_uploader("Please upload your file", type=["wav"])
-	wavfile = fileObject.read()
 
-	with open(wavfile, 'rb') as f:
+	with open(fileObject.name, 'rb') as f:
 		res = stt.recognize(audio=f, content_type='audio/wav', model='en-US_NarrowbandModel', word_confidence=False).get_result()
 
 	def fun(res):
