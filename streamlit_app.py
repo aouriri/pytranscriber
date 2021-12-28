@@ -104,23 +104,23 @@ elif page == 'Speech to Text Transcription':
 
 	fileObject = st.file_uploader("Please upload your file", type=["wav"])
 
-	if fileObject is not None:
-		with open(fileObject.name, 'rb') as f:
-			res = stt.recognize(audio=f, content_type='audio/wav', model='en-US_NarrowbandModel', word_confidence=False).get_result()
-
-	def fun(res):
-		if 'transcript' in res:
-			yield res['transcript']
-			for k in res:
-				if isinstance(res[k], list):
-					for i in res[k]:
-						for j in fun(i):
-							yield j
-	list(fun(res))
-	output = list(fun(res))
+	# if fileObject is not None:
+	# 	with open(fileObject.name, 'rb') as f:
+	# 		res = stt.recognize(audio=f, content_type='audio/wav', model='en-US_NarrowbandModel', word_confidence=False).get_result()
+	#
+	# def fun(res):
+	# 	if 'transcript' in res:
+	# 		yield res['transcript']
+	# 		for k in res:
+	# 			if isinstance(res[k], list):
+	# 				for i in res[k]:
+	# 					for j in fun(i):
+	# 						yield j
+	# list(fun(res))
+	# output = list(fun(res))
 
 	st.markdown("---")
-	st.text_area('Transcribed text', output)
+	st.text_area('Transcribed text', " ")
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
