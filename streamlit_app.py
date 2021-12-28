@@ -102,9 +102,10 @@ elif page == 'Speech to Text Transcription':
 		    "**The attaching of my IBM Cloud account is for demonstrative purposes.**"
 		   )
 
-	fileObject = st.file_uploader("Please upload your file", type=["wav"])
+	if fileObject is not None:
+		fileObject = st.file_uploader("Please upload your file", type=["wav"])
 
-	with open(os.path.join(fileObject.name), 'rb') as f:
+	with open(fileObject.name, 'rb') as f:
 		res = stt.recognize(audio=f, content_type='audio/wav', model='en-US_NarrowbandModel', word_confidence=False).get_result()
 
 	def fun(res):
