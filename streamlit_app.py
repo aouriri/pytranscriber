@@ -104,7 +104,7 @@ elif page == 'Speech to Text Transcription':
 
 	fileObject = st.file_uploader("Please upload your file", type=["wav"])
 
-	with open(os.path.join("/app/Temp", fileObject.name), 'rb') as f:
+	with open(os.path.join(fileObject.name), 'rb') as f:
 		res = stt.recognize(audio=f, content_type='audio/wav', model='en-US_NarrowbandModel', word_confidence=False).get_result()
 
 	def fun(res):
