@@ -6,7 +6,7 @@ spacy-streamlit
 spacyopentapioca>=0.1.3,<0.2.0
 soundfile
 pydub
-https://github.com/aouriri/pytranscriber/tree/main/en_core_web_sm-3.2.0/en_core_web_sm/en_core_web_sm-3.2.0
+https://github.com/aouriri/pytranscriber/tree/main/en_core_web_sm-3.2.0
 SpeechRecognition>=3.8.1
 urllib3
 ibm_watson
