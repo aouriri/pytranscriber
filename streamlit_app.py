@@ -152,22 +152,21 @@ else:
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
 	doc = spacy_streamlit.process_text("en_core_web_sm", text)
 	
-	html = displacy.render(
-		doc,
-		style="ent",
-		options={"ents": label_select, "colors": colors},
-		manual=manual,
-	)
-	
 	style = "<style>mark.entity { display: inline-block }</style>"
 	st.write(f"{style}{get_html(html)}", unsafe_allow_html=True)
 
 	spacy_streamlit.visualize_ner(
 		doc,
-		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
+		#labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
+		style="ent",
+		options={"ents": label_select, "colors": colors},
+		manual=manual,
 		show_table=False,
 		title="Person, Places and Other Things",
 	)
+	
+	style = "<style>mark.entity { display: inline-block }</style>"
+	st.write(f"{style}{get_html(html)}", unsafe_allow_html=True)
 
 	with st.expander("Entity label explanation"):
 		st.write("""
