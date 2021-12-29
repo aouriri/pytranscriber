@@ -155,9 +155,11 @@ else:
 	spacy_streamlit.visualize_ner(
 		doc,
 		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
-		kb_url_template=f"https://www.wikidata.org/wiki/{}",
+		kb_id=kb_id_,
+		kb_url_template=f"https://www.wikidata.org/wiki/{kb_id}",
 		show_table=False,
 		title="Person, Places and Other Things",
+		manual=True
 	)
 
 	with st.expander("Entity label explanation"):
