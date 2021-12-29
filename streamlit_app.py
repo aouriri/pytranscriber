@@ -150,7 +150,7 @@ else:
 	nlp = en_core_web_sm.load()
 
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
-	doc = spacy_streamlit.process_text(nlp, text)
+	doc = spacy_streamlit.process_text("en_core_web_sm", text)
 
 	spacy_streamlit.visualize_ner(
 		doc,
