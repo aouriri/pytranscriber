@@ -151,9 +151,6 @@ else:
 
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
 	doc = spacy_streamlit.process_text("en_core_web_sm", text)
-	
-	style = "<style>mark.entity { display: inline-block }</style>"
-	st.write(f"{style}{get_html(html)}", unsafe_allow_html=True)
 
 	spacy_streamlit.visualize_ner(
 		doc,
