@@ -152,6 +152,7 @@ else:
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
 	doc = spacy_streamlit.process_text("en_core_web_sm", text)
 	
+	exp = st.expander("Select entity labels")
 	label_select = exp.multiselect(
 		"Entity labels",
 		options=labels,
