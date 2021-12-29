@@ -158,8 +158,9 @@ else:
 		options={"ents": label_select, "colors": colors},
 		manual=manual,
 	)
+	
 	style = "<style>mark.entity { display: inline-block }</style>"
-        st.write(f"{style}{get_html(html)}", unsafe_allow_html=True)
+	st.write(f"{style}{get_html(html)}", unsafe_allow_html=True)
 
 	spacy_streamlit.visualize_ner(
 		doc,
