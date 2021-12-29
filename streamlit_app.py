@@ -155,8 +155,7 @@ else:
 	spacy_streamlit.visualize_ner(
 		doc,
 		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
-		kb_id=doc.kb_id_,
-		kb_url="https://www.wikidata.org/entity/" + doc.kb_id_,
+		kb_url_template=f"https://www.wikidata.org/wiki/{span.kb_id}",
 		show_table=False,
 		title="Person, Places and Other Things",
 	)
