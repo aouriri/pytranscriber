@@ -4,7 +4,7 @@ streamlit>=0.86.0
 spacy>=3.0.0,<4.0.0
 spacy-streamlit
 spacyopentapioca
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.0.0/en_core_web_sm-3.0.0-py3-none-any.whl#egg=en_core_web_sm==3.0.0
+https://github.com/aouriri/pytranscriber/tree/main/en_core_web_sm/en_core_web_sm-3.2.0
 soundfile
 pydub
 SpeechRecognition>=3.8.1
