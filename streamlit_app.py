@@ -157,16 +157,12 @@ else:
 
 	spacy_streamlit.visualize_ner(
 		doc,
-		#labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
-		style="ent",
-		options={"ents": label_select, "colors": colors},
-		manual=manual,
+		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
+		kb_id=doc.kb_id_,
+		kb_url="https://www.wikidata.org/entity/" + doc.kb_id_,
 		show_table=False,
 		title="Person, Places and Other Things",
 	)
-	
-	style = "<style>mark.entity { display: inline-block }</style>"
-	st.write(f"{style}{get_html(html)}", unsafe_allow_html=True)
 
 	with st.expander("Entity label explanation"):
 		st.write("""
