@@ -154,13 +154,13 @@ else:
 	doc = spacy_streamlit.process_text("en_core_web_sm", text)
 
 	params = {"text": doc.text,
-          "ents": [{"start": ent.start_char,
-                    "end": ent.end_char,
-                    "label": ent.label_,
-                    "kb_id": ent.kb_id_,
-                    "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_} 
-                   for ent in doc.ents],
-          "title": None}
+		  "ents": [{"start": ent.start_char,
+			    "end": ent.end_char,
+			    "label": ent.label_,
+			    "kb_id": ent.kb_id_,
+			    "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_}
+			   for ent in doc.ents],
+		  "title": None}
 	
 	displacy.render(params, style="ent", manual=True)
 	#spacy_streamlit.visualize_ner(
