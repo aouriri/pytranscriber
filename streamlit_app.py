@@ -163,8 +163,8 @@ else:
 			  "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_} 
 			 for ent in doc.ents],
 		manual=True,
-		show_table=False,
-		title="Person, Places and Other Things",
+		#show_table=False,
+		#title="Person, Places and Other Things",
         )
 	
 	#spacy_streamlit.visualize_ner(
