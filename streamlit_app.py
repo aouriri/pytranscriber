@@ -152,15 +152,26 @@ else:
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
 	doc = spacy_streamlit.process_text("en_core_web_sm", text)
 
-	spacy_streamlit.visualize_ner(
+	html = displacy.render(
 		doc,
-		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
-		kb_id=kb_id_,
-		kb_url_template=f"https://www.wikidata.org/wiki/{kb_id}",
+		style="ent",
+		options=[{"start": ent.start_char,
+			  "end": ent.end_char,
+			  "label": ent.label_,
+			  "kb_id": ent.kb_id_,
+			  "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_} 
+			 for ent in doc.ents],
+		manual=True,
 		show_table=False,
 		title="Person, Places and Other Things",
-		manual=True
-	)
+        )
+	
+	#spacy_streamlit.visualize_ner(
+	#	doc,
+	#	labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
+	#	show_table=False,
+	#	title="Person, Places and Other Things",
+	#)
 
 	with st.expander("Entity label explanation"):
 		st.write("""
