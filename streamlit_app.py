@@ -9,6 +9,7 @@ import spacy
 import spacy_streamlit
 import en_core_web_sm
 from bs4 import BeautifulSoup
+from spacy import displacy
 from os import path
 from pydub import AudioSegment
 from ibm_watson import SpeechToTextV1
