@@ -8,6 +8,7 @@ import streamlit as st
 import spacy
 import spacy_streamlit
 import en_core_web_sm
+from spacy import displacy
 from bs4 import BeautifulSoup
 from os import path
 from pydub import AudioSegment
