@@ -162,7 +162,7 @@ else:
 			   for ent in doc.ents],
 		  "title": None}
 	
-	displacy.render(params, style="ent", manual=True)
+	spacy.displacy.serve(params, style="ent", manual=True)
 	#spacy_streamlit.visualize_ner(
 	#	doc,
 	#	labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
