@@ -158,7 +158,7 @@ else:
 		style="ent",
 		show_table=False,
 		title="Person, Places and Other Things",
-		colors={}
+		colors={},
 		options=[{"start": ent.start_char,
 			  "end": ent.end_char,
 			  "label": ent.label_,
