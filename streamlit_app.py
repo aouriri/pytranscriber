@@ -159,9 +159,13 @@ else:
 		show_table=False,
 		title="Person, Places and Other Things",
 		displacy_options={
-			"kb_url_template": "https://www.wikidata.org/wiki/{}"
+			"ents": [{"start": ent.start_char,
+				  "end": ent.end_char,
+				  "label": ent.label_,
+				  "kb_id": ent.kb_id_,
+				  "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_}
+				 for ent in doc.ents],
 		},
-		key="Default Colors"
 	)
 
 	with st.expander("Entity label explanation"):
