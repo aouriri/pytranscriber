@@ -161,7 +161,6 @@ else:
 		displacy_options={
 			"kb_url_template": "https://www.wikidata.org/wiki/{}"
 		},
-		key="Default Colors"
 	)
 
 	with st.expander("Entity label explanation"):
