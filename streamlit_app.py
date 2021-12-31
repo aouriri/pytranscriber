@@ -145,38 +145,20 @@ else:
 	# Display the NER content here
 	# Example using the components provided by spacy-streamlit in an existing app.
 	
-	import spacy
-
-	import spacy_streamlit
 	st.title('Named Entity Recognition')
 
-	#DEFAULT_TEXT = """Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002."""
+	DEFAULT_TEXT = """Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002."""
 
-	nlp = spacy.blank("en")
-	text = "But Google is starting from behind."
-	doc = nlp.make_doc(text)
-	ent = doc.char_span(4, 10, label="ORG", kb_id="Q95")
-	doc.ents = [ent]
-	#nlp = en_core_web_sm.load()
+	nlp = en_core_web_sm.load()
+	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
+	doc = spacy_streamlit.process_text("en_core_web_sm", text)
+
 	spacy_streamlit.visualize_ner(
 		doc,
-		labels=["ORG"],
+		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
 		show_table=False,
-		title="Default Colors NER Visualization",
-		#displacy_options={
-		#	"kb_url_template": "https://www.wikidata.org/wiki/{}"
-		#},
-		#key="Default Colors"
+		title="Person, Places and Other Things",
 	)
-	#text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
-	#doc = spacy_streamlit.process_text("en_core_web_sm", text)
-
-	#spacy_streamlit.visualize_ner(
-	#	doc,
-	#	labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
-	#	show_table=False,
-	#	title="Person, Places and Other Things",
-	#)
 
 	with st.expander("Entity label explanation"):
 		st.write("""
