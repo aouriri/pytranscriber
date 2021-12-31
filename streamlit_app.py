@@ -163,10 +163,10 @@ else:
 		labels=["ORG"],
 		show_table=False,
 		title="Default Colors NER Visualization",
-		displacy_options={
-			"kb_url_template": "https://www.wikidata.org/wiki/{}"
-		},
-		key="Default Colors"
+		#displacy_options={
+		#	"kb_url_template": "https://www.wikidata.org/wiki/{}"
+		#},
+		#key="Default Colors"
 	)
 	#text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
 	#doc = spacy_streamlit.process_text("en_core_web_sm", text)
