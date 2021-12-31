@@ -121,10 +121,10 @@ elif page == 'Speech to Text Transcription':
 	 			indent=2))
 
 	# Stores the transcribed text
-	 str = ""
+	str = ""
 
-	 while bool(dic.get('results')):
-	 	str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
+	while bool(dic.get('results')):
+		str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 
 	st.markdown("---")
 	st.text_area('Transcribed text', str) # replace quotes with str
