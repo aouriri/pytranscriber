@@ -5,7 +5,7 @@ mp3 to WAV converter SLASH speech to text transcriber in Streamlit.
 
 ## to do (later)
 - [ ] create logo
-- [ ] figure out how to merge spacy_streamlit NER with [OpenTapioca](https://github.com/UB-Mannheim/spacyopentapioca#vizualization)
+- [X] figure out how to merge spacy_streamlit NER with [OpenTapioca](https://github.com/UB-Mannheim/spacyopentapioca#vizualization) *mostly* figured out, QIDs not linked to Wikidata entry; ```displacy_options``` enhancement may work once it's fully incorporated
 - [ ] [train Watson model](https://www.ibm.com/demos/live/content/watson/stt/lab/hands-on-lab-customization.pdf) using corpus?
 
 
