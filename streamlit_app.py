@@ -2,6 +2,7 @@
 import io
 import requests
 import os
+import json
 import pydub
 import urllib.request as url
 import streamlit as st
@@ -11,6 +12,7 @@ import en_core_web_sm
 from bs4 import BeautifulSoup
 from spacy import displacy
 from os import path
+from os.path import join, dirname
 from pydub import AudioSegment
 from ibm_watson import SpeechToTextV1
 from ibm_watson.websocket import RecognizeCallback, AudioSource
@@ -91,7 +93,7 @@ if page == 'Audio Conversion':
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
 	import config
-	
+
 	authenticator = IAMAuthenticator(apikey)
 	stt = SpeechToTextV1(authenticator=authenticator)
 	stt.set_service_url(url)
