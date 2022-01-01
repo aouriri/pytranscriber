@@ -92,17 +92,16 @@ if page == 'Audio Conversion':
 
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
-	import stt_config
-	from stt_config import apikey, url
 
-	authenticator = IAMAuthenticator(stt_config.apikey)
-	stt = SpeechToTextV1(authenticator=authenticator)
-	stt.set_service_url(stt_config.url)
+	#authenticator = IAMAuthenticator('apikey')
+	#stt = SpeechToTextV1(authenticator=authenticator)
+	#stt.set_service_url('url')
 
 	st.title('Speech to Text Transcription')
 	st.markdown("Speech to text using ```Python``` can be done 'out of the box' on shorter audio (limited to 50 requests per day) using Google's Web Speech API. "
 		    "The code for that is included below (click to expand!). For larger audio files, an API must be used. "
 		    "For this project, I am using [IBM's Speech to Text](https://www.ibm.com/cloud/watson-speech-to-text) and its cloud. "
+		    "IBM's STT can transcribe wav and mp3 files, along with other formats. For the sake of simplifying the code that does the conversion, *only* wav files are accepted. "
 		    "Its 'Lite' option includes 500 minutes of *free* speech recognition a month. "
 		    "If you choose to use another recognition API, **please fork/update code to reflect that.** "
 		    "**The attaching of my IBM Cloud account is for demonstrative purposes.**"
@@ -112,24 +111,24 @@ elif page == 'Speech to Text Transcription':
 	if uploaded_file is not None:
 		     bytes_data = fileObject.getvalue()
 
-	with open(join(dirname('__file__'), bytes_data),'rb') as audio_file:
-	 	dic = json.loads(
-	 		json.dumps(
-	 			service.recognize(
-	 				audio=audio_file,
-	 				content_type='audio/wav',
-	 				timestamps=False,
-	 				word_confidence=False).get_result(),
-	 			indent=2))
+	#with open(join(dirname('__file__'), bytes_data),'rb') as audio_file:
+	# 	dic = json.loads(
+	# 		json.dumps(
+	# 			service.recognize(
+	# 				audio=audio_file,
+	# 				content_type='audio/wav',
+	# 				timestamps=False,
+	# 				word_confidence=False).get_result(),
+	# 			indent=2))
 
 	# Stores the transcribed text
-	str = ""
+	#str = ""
 
-	while bool(dic.get('results')):
+	#while bool(dic.get('results')):
 		str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 
 	st.markdown("---")
-	st.text_area('Transcribed text', str) # replace quotes with str
+	st.text_area('Transcribed text', '') # replace quotes with str
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
