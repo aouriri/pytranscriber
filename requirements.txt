@@ -11,3 +11,4 @@ pydub
 SpeechRecognition>=3.8.1
 urllib3
 ibm_watson
+stt_config.py
