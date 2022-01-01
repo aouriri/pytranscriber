@@ -108,7 +108,7 @@ elif page == 'Speech to Text Transcription':
 		   )
 
 	fileObject = st.file_uploader("Please upload your file", type=["wav"])
-	if uploaded_file is not None:
+	if fileObject is not None:
 		     bytes_data = fileObject.getvalue()
 
 	#with open(join(dirname('__file__'), bytes_data),'rb') as audio_file:
