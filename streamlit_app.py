@@ -125,7 +125,7 @@ elif page == 'Speech to Text Transcription':
 	#str = ""
 
 	#while bool(dic.get('results')):
-		str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
+	#	str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 
 	st.markdown("---")
 	st.text_area('Transcribed text', '') # replace quotes with str
