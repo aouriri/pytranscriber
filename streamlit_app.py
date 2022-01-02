@@ -152,36 +152,21 @@ else:
 
 	st.title('Named Entity Recognition')
 
-	#DEFAULT_TEXT = """Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002."""
+	DEFAULT_TEXT = """Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002."""
 
-	#nlp = en_core_web_sm.load()
-	#text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
-	#doc = spacy_streamlit.process_text("en_core_web_sm", text)
+	nlp = en_core_web_sm.load()
+	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
+	doc = spacy_streamlit.process_text("en_core_web_sm", text)
 
-	#spacy_streamlit.visualize_ner(
-	#	doc,
-	#	labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
-	#	show_table=False,
-	#	title="Person, Places and Other Things",
+	spacy_streamlit.visualize_ner(
+		doc,
+		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
+		show_table=False,
+		title="Person, Places and Other Things",
 		#displacy_options={
 		#	"kb_url_template": "https://www.wikidata.org/wiki/{}"
 		#},
 		#key="Default Colors"
-	#)
-	nlp = spacy.blank("en")
-	text = "But Google is starting from behind."
-	doc = nlp.make_doc(text)
-	ent = doc.char_span(4, 10, label="ORG", kb_id="Q95")
-	doc.ents = [ent]
-	
-	spacy_streamlit.visualize_ner(
-		doc,
-		labels=["ORG"],
-		show_table=False,
-		displacy_options={
-			"kb_url_template": "https://www.wikidata.org/wiki/{}"
-		},
-		key="Default Colors"
 	)
 
 	with st.expander("Entity label explanation"):
