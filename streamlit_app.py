@@ -112,24 +112,24 @@ elif page == 'Speech to Text Transcription':
 	if fileObject is not None:
 		     bytes_data = fileObject.getvalue()
 
-	#with open(join(dirname('__file__'), bytes_data),'rb') as audio_file:
-	# 	dic = json.loads(
-	# 		json.dumps(
-	# 			service.recognize(
-	# 				audio=audio_file,
-	# 				content_type='audio/wav',
-	# 				timestamps=False,
-	# 				word_confidence=False).get_result(),
-	# 			indent=2))
+	with open(join(dirname('__file__'), bytes_data),'rb') as audio_file:
+	 	dic = json.loads(
+	 		json.dumps(
+	 			service.recognize(
+	 				audio=audio_file,
+	 				content_type='audio/wav',
+	 				timestamps=False,
+	 				word_confidence=False).get_result(),
+	 			indent=2))
 
 	# Stores the transcribed text
-	#str = ""
+	str = ""
 
-	#while bool(dic.get('results')):
-	#	str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
+	while bool(dic.get('results')):
+		str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 
 	st.markdown("---")
-	st.text_area('Transcribed text', '') # replace quotes with str
+	st.text_area('Transcribed text', str) # replace quotes with str
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
