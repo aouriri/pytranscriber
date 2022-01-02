@@ -8,6 +8,7 @@ import urllib.request as url
 import streamlit as st
 import spacy
 import spacy_streamlit
+import threading
 import en_core_web_sm
 from bs4 import BeautifulSoup
 from spacy import displacy
@@ -93,9 +94,9 @@ if page == 'Audio Conversion':
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
 
-	#authenticator = IAMAuthenticator('apikey')
-	#stt = SpeechToTextV1(authenticator=authenticator)
-	#stt.set_service_url('url')
+	authenticator = IAMAuthenticator(configure.apikey)
+	stt = SpeechToTextV1(authenticator=authenticator)
+	stt.set_service_url(configure.url)
 
 	st.title('Speech to Text Transcription')
 	st.markdown("Speech to text using ```Python``` can be done 'out of the box' on shorter audio (limited to 50 requests per day) using Google's Web Speech API. "
