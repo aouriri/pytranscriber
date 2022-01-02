@@ -112,7 +112,7 @@ elif page == 'Speech to Text Transcription':
 	if fileObject is not None:
 		     bytes_data = fileObject.getvalue()
 
-	with open(join(dirname('__file__'), bytes_data),'rb') as audio_file:
+	with open(bytes_data,'rb') as audio_file:
 	 	dic = json.loads(
 	 		json.dumps(
 	 			service.recognize(
