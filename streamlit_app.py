@@ -94,6 +94,9 @@ if page == 'Audio Conversion':
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
 
+	import configure
+	from configure import apikey, url
+
 	authenticator = IAMAuthenticator(configure.apikey)
 	stt = SpeechToTextV1(authenticator=authenticator)
 	stt.set_service_url(configure.url)
