@@ -93,10 +93,12 @@ if page == 'Audio Conversion':
 
 elif page == 'Speech to Text Transcription':
 # Display the transcription content here
+	apikey = st.secrets["apikey"]
+	url = st.secrets["url"]
 
-	authenticator = IAMAuthenticator(st.secrets["apikey"])
+	authenticator = IAMAuthenticator(apikey)
 	service = SpeechToTextV1(authenticator=authenticator)
-	service.set_service_url(st.secrets["url"])
+	service.set_service_url(url)
 
 	st.title('Speech to Text Transcription')
 	st.markdown("Speech to text using ```Python``` can be done 'out of the box' on shorter audio (limited to 50 requests per day) using Google's Web Speech API. "
