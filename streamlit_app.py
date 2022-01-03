@@ -111,7 +111,7 @@ elif page == 'Speech to Text Transcription':
 		   )
 
 	#fileObject = st.file_uploader("Please upload your file", type=["wav"])
-	fileObject = st.text_input("input WAV audio file URL")
+	fileObject = st.text_input("Input WAV audio file URL")
 
 	if len(fileObject) != 0:
 		r = requests.get(fileObject, allow_redirects=True)
@@ -135,7 +135,8 @@ elif page == 'Speech to Text Transcription':
 		str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 
 	st.markdown("---")
-	st.text_area('Transcribed text', str) # replace quotes with str
+	trns_content = st.text_area('Transcribed text', str) # replace quotes with str
+	st.download_button('Download transcribed text', trns_contents)
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
