@@ -116,17 +116,17 @@ elif page == 'Speech to Text Transcription':
 	if len(fileObject) != 0:
 		r = requests.get(fileObject, allow_redirects=True)
 		open('audio.wav', 'wb').write(r.content)
-
-	with open('audio.wav','rb') as audio_file:
-	 	dic = json.loads(
-	 		json.dumps(
-	 			service.recognize(
-	 				audio=audio_file,
-	 				content_type='audio/wav',
-	 				timestamps=False,
-					model='en-US_NarrowbandModel',
-	 				word_confidence=False).get_result(),
-	 			indent=2))
+		
+		with open('audio.wav','rb') as audio_file:
+			dic = json.loads(
+				json.dumps(
+					service.recognize(
+						audio=audio_file,
+						content_type='audio/wav',
+						timestamps=False,
+						model='en-US_NarrowbandModel',
+						word_confidence=False).get_result(),
+					indent=2))
 
 	# Stores the transcribed text
 	str = ""
@@ -135,8 +135,9 @@ elif page == 'Speech to Text Transcription':
 		str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 
 	st.markdown("---")
-	trns_content = st.text_area('Transcribed text', str) # replace quotes with str
+	trns_content = st.text_area('Transcribed text', str, height=150) # replace quotes with str
 	st.download_button('Download transcribed text', trns_content)
+	st.markdown("Text downloaded as .txt file.")
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
