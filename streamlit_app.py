@@ -134,7 +134,7 @@ elif page == 'Speech to Text Transcription':
 			str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 
 	st.markdown("---")
-	trns_content = st.text_area('Transcribed text', str, height=150, placeholder='Future location of transcribed text.') # replace quotes with str
+	trns_content = st.text_area('Transcribed text', placeholder='Future location of transcribed text.', str, height=150) # replace quotes with str
 	st.download_button('Download transcribed text', trns_content)
 	st.markdown("Text downloaded as .txt file.")
 	st.markdown("---")
