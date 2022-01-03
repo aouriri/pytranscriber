@@ -108,28 +108,34 @@ elif page == 'Speech to Text Transcription':
 		    "**The attaching of my IBM Cloud account is for demonstrative purposes.**"
 		   )
 
-	fileObject = st.file_uploader("Please upload your file", type=["wav"])
-	#if fileObject is not None:
-	#	audio_bytes = fileObject.read()
+	#fileObject = st.file_uploader("Please upload your file", type=["wav"])
+	fileObject = st.text_input("input WAV audio file URL")
 
-	#with open(audio_bytes,'rb') as audio_file:
-	# 	dic = json.loads(
-	# 		json.dumps(
-	# 			service.recognize(
-	# 				audio=audio_file,
-	# 				content_type='audio/wav',
-	# 				timestamps=False,
-	# 				word_confidence=False).get_result(),
-	# 			indent=2))
+	if len(fileObject) >1:
+		source = url.urlopen(fileObject).read()
+		
+	if len(fileObject) != 0:
+		r = requests.get(fileObject, allow_redirects=True)
+		open('audio.wav', 'wb').write(r.content)
+
+	with open('audio.wav','rb') as audio_file:
+	 	dic = json.loads(
+	 		json.dumps(
+	 			service.recognize(
+	 				audio=audio_file,
+	 				content_type='audio/wav',
+	 				timestamps=False,
+	 				word_confidence=False).get_result(),
+	 			indent=2))
 
 	# Stores the transcribed text
-	#str = ""
+	str = ""
 
-	#while bool(dic.get('results')):
-	#	str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
+	while bool(dic.get('results')):
+		str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 
 	st.markdown("---")
-	st.text_area('Transcribed text', '') # replace quotes with str
+	st.text_area('Transcribed text', str) # replace quotes with str
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
