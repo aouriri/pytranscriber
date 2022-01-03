@@ -127,12 +127,11 @@ elif page == 'Speech to Text Transcription':
 						model='en-US_NarrowbandModel',
 						word_confidence=False).get_result(),
 					indent=2))
-
-	# Stores the transcribed text
-	str = ""
-
-	while bool(dic.get('results')):
-		str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
+		
+		# Stores the transcribed text
+		str = ""
+		while bool(dic.get('results')):
+			str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 
 	st.markdown("---")
 	trns_content = st.text_area('Transcribed text', str, height=150) # replace quotes with str
