@@ -124,6 +124,7 @@ elif page == 'Speech to Text Transcription':
 	 				audio=audio_file,
 	 				content_type='audio/wav',
 	 				timestamps=False,
+					model='en-US_NarrowbandModel',
 	 				word_confidence=False).get_result(),
 	 			indent=2))
 
