@@ -136,7 +136,7 @@ elif page == 'Speech to Text Transcription':
 
 	st.markdown("---")
 	trns_content = st.text_area('Transcribed text', str) # replace quotes with str
-	st.download_button('Download transcribed text', trns_contents)
+	st.download_button('Download transcribed text', trns_content)
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
