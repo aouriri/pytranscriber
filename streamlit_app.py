@@ -109,8 +109,10 @@ elif page == 'Speech to Text Transcription':
 		   )
 
 	fileObject = st.file_uploader("Please upload your file", type=["wav"])
+	if fileObject is not None:
+		audio_bytes = fileObject.name()
 
-	with open(fileObject,'rb') as audio_file:
+	with open(audio_bytes,'rb') as audio_file:
 	 	dic = json.loads(
 	 		json.dumps(
 	 			service.recognize(
