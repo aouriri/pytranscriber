@@ -138,7 +138,11 @@ elif page == 'Speech to Text Transcription':
 
 	st.markdown("---")
 	trns_content = st.text_area('Transcribed text', str, height=150, placeholder='Future location of transcribed text.') # replace quotes with str
-	st.download_button('Download transcribed text', trns_content)
+	st.download_button(
+		label="Download transcribed text",
+		data=trns_content,
+		mime='text/plain',
+	)
 	st.markdown("Text downloaded as .txt file.")
 	st.markdown("---")
 
