@@ -160,6 +160,15 @@ elif page == 'Speech to Text Transcription':
 		f.write(" ")
 		f.close()'''
 		st.code(code, language='python')
+	
+	st.session_state["url_field"] = fileObject
+	st.session_state["results_field"] = trns_content
+	
+	def clear_data():
+		del st.session_state["url_field"]
+		del st.session_state["results_field"]
+
+	st.button("Clear!",on_click=clear_data)
 
 else:
 	# Display the NER content here
