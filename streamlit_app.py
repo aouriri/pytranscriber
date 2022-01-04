@@ -113,10 +113,10 @@ elif page == 'Speech to Text Transcription':
 	#fileObject = st.file_uploader("Please upload your file", type=["wav"])
 	fileObject = st.text_input("Input WAV audio file URL")
 
-	#will add progress spinner later - with st.spinner('Transcription in Progress'):
-	if len(fileObject) != 0:
-		r = requests.get(fileObject, allow_redirects=True)
-		open('audio.wav', 'wb').write(r.content)
+	with st.spinner('Transcription in Progress'):
+		if len(fileObject) != 0:
+			r = requests.get(fileObject, allow_redirects=True)
+			open('audio.wav', 'wb').write(r.content)
 		
 		with open('audio.wav','rb') as audio_file:
 			dic = json.loads(
@@ -129,13 +129,13 @@ elif page == 'Speech to Text Transcription':
 						word_confidence=False).get_result(),
 					indent=2))
 		
-			# Stores the transcribed text
-			str = ""
-			while bool(dic.get('results')):
-				str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
-		#st.success('Done!')
-	else:
-		pass
+		# Stores the transcribed text
+		str = ""
+		while bool(dic.get('results')):
+			str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
+		st.success('Done!')
+		else:
+			pass
 	
 	st.markdown("---")
 	trns_content = st.text_area('Transcribed text', str, height=150)
