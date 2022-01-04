@@ -110,7 +110,6 @@ elif page == 'Speech to Text Transcription':
 		    "**The attaching of my IBM Cloud account is for demonstrative purposes.**"
 		   )
 
-	#fileObject = st.file_uploader("Please upload your file", type=["wav"])
 	fileObject = st.text_input("Input WAV audio file URL")
 	
 	if len(fileObject) != 0:
@@ -144,7 +143,6 @@ elif page == 'Speech to Text Transcription':
 		mime='text/plain',
 	)
 	st.markdown("Text downloaded as .txt file.")
-	
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
