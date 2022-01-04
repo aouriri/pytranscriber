@@ -120,12 +120,13 @@ elif page == 'Speech to Text Transcription':
 		with open('audio.wav','rb') as audio_file:
 			dic = json.loads(
 				json.dumps(
-					audio=audio_file,
-					content_type='audio/wav',
-					timestamps=False,
-					model='en-US_NarrowbandModel',
-					word_confidence=False).get_result(),
-				indent=2)
+					service.recognize(
+						audio=audio_file,
+						content_type='audio/wav',
+						timestamps=False,
+						model='en-US_NarrowbandModel',
+						word_confidence=False).get_result(),
+					indent=2))
 		
 	# Stores the transcribed text
 	str = ""
@@ -160,14 +161,14 @@ elif page == 'Speech to Text Transcription':
 		f.close()'''
 		st.code(code, language='python')
 	
-	st.session_state["url_field"] = fileObject
-	st.session_state["results_field"] = trns_content
+	#st.session_state["url_field"] = fileObject
+	#st.session_state["results_field"] = trns_content
 	
-	def clear_data():
-		del st.session_state["url_field"]
-		del st.session_state["results_field"]
+	#def clear_data():
+	#	del st.session_state["url_field"]
+	#	del st.session_state["results_field"]
 
-	st.button("Clear!",on_click=clear_data)
+	#st.button("Clear!",on_click=clear_data)
 
 else:
 	# Display the NER content here
