@@ -162,7 +162,6 @@ elif page == 'Speech to Text Transcription':
 		st.code(code, language='python')
 	
 	def clear_data():
-		del st.session_state[fileObject]
 		del st.session_state[trns_content]
 	
 	st.button("Clear!", on_click=clear_data)
