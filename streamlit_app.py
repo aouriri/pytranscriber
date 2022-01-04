@@ -5,6 +5,7 @@ import os
 import json
 import pydub
 import pyperclip
+import PyQt5
 import urllib.request as url
 import streamlit as st
 import spacy
