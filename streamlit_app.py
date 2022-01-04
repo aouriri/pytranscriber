@@ -136,10 +136,9 @@ elif page == 'Speech to Text Transcription':
 		pass
 
 	st.markdown("---")
-	transcribed_txt = str
-	trns_content = st.text_area('Transcribed text', transcribed_txt, height=150, placeholder="Future location of transcribed text.")
+	trns_content = st.text_area('Transcribed text', str, height=150, placeholder="Future location of transcribed text.")
 	st.download_button(
-		label="Download transcribed text",
+		label="Copy transcribed text",
 		data=transcribed_txt,
 		mime='text/plain',
 	)
@@ -161,6 +160,13 @@ elif page == 'Speech to Text Transcription':
 		f.write(" ")
 		f.close()'''
 		st.code(code, language='python')
+	
+	def clear_data():
+		del st.session_state[fileObject]
+		del st.session_state[trns_content]
+	
+	st.button("Clear!", on_click=clear_data)
+
 
 else:
 	# Display the NER content here
