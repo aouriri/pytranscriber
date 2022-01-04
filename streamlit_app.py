@@ -133,9 +133,6 @@ elif page == 'Speech to Text Transcription':
 			str = ""
 			while bool(dic.get('results')):
 				str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
-			
-			if str == 0:
-				placeholder = 'Future location of transcribed text.'
 		#st.success('Done!')
 
 	st.markdown("---")
