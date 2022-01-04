@@ -122,21 +122,21 @@ elif page == 'Speech to Text Transcription':
 		r = requests.get(fileObject, allow_redirects=True)
 		open('audio.wav', 'wb').write(r.content)
 		
-	with open('audio.wav','rb') as audio_file:
-		dic = json.loads(
-			json.dumps(
-				service.recognize(
-					audio=audio_file,
-					content_type='audio/wav',
-					timestamps=False,
-					model='en-US_NarrowbandModel',
-					word_confidence=False).get_result(),
-				indent=2))
+		with open('audio.wav','rb') as audio_file:
+			dic = json.loads(
+				json.dumps(
+					service.recognize(
+						audio=audio_file,
+						content_type='audio/wav',
+						timestamps=False,
+						model='en-US_NarrowbandModel',
+						word_confidence=False).get_result(),
+					indent=2))
 		
-		# Stores the transcribed text
-		str = ""
-		while bool(dic.get('results')):
-			str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
+			# Stores the transcribed text
+			str = ""
+			while bool(dic.get('results')):
+				str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 			
 		#st.success('Done!')
 
