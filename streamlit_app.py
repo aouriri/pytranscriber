@@ -125,7 +125,7 @@ elif page == 'Speech to Text Transcription':
 					timestamps=False,
 					model='en-US_NarrowbandModel',
 					word_confidence=False).get_result(),
-				indent=2))
+				indent=2)
 		
 	# Stores the transcribed text
 	str = ""
