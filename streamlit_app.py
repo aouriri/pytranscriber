@@ -136,7 +136,7 @@ elif page == 'Speech to Text Transcription':
 		pass
 	
 	st.markdown("---")
-	trns_content = st.text_area('Transcribed text', str.text(), height=150, placeholder="Future location of transcribed text.")
+	trns_content = st.text_area('Transcribed text', str, height=150)
 	st.download_button(
 		label="Download transcribed text",
 		data=trns_content,
