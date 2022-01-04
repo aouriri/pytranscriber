@@ -117,10 +117,9 @@ elif page == 'Speech to Text Transcription':
 		r = requests.get(fileObject, allow_redirects=True)
 		open('audio.wav', 'wb').write(r.content)
 		
-	with open('audio.wav','rb') as audio_file:
-		dic = json.loads(
-			json.dumps(
-				service.recognize(
+		with open('audio.wav','rb') as audio_file:
+			dic = json.loads(
+				json.dumps(
 					audio=audio_file,
 					content_type='audio/wav',
 					timestamps=False,
@@ -128,13 +127,12 @@ elif page == 'Speech to Text Transcription':
 					word_confidence=False).get_result(),
 				indent=2))
 		
-	# Stores the transcribed text
-	str = ""
-	while bool(dic.get('results')):
-		str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
+		# Stores the transcribed text
+		str = ""
+		while bool(dic.get('results')):
+			str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 	else:
 		pass
-	break
 
 	st.markdown("---")
 	trns_content = st.text_area('Transcribed text', str, height=150, placeholder="Future location of transcribed text.")
