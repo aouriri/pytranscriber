@@ -143,6 +143,13 @@ elif page == 'Speech to Text Transcription':
 		mime='text/plain',
 	)
 	st.markdown("Text downloaded as .txt file.")
+	
+	placeholder = st.empty()
+	input = placeholder.text_input(str)
+	click_clear = st.button('Clear!', key=1)
+	if click_clear:
+		input = placeholder.text_input(str, value='Future location of transcribed text.', key=1)
+	
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
