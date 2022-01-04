@@ -117,6 +117,10 @@ elif page == 'Speech to Text Transcription':
 	if len(fileObject) != 0:
 		r = requests.get(fileObject, allow_redirects=True)
 		open('audio.wav', 'wb').write(r.content)
+	
+	def clear_text():
+		if len(fileObject) = 0:
+			st.session_state[str] = ""
 		
 	with open('audio.wav','rb') as audio_file:
 		dic = json.loads(
