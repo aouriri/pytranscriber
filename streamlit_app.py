@@ -133,12 +133,13 @@ elif page == 'Speech to Text Transcription':
 			str = ""
 			while bool(dic.get('results')):
 				str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
-	else:
-		pass
+			
+			if str == 0:
+				placeholder = 'Future location of transcribed text.'
 		#st.success('Done!')
 
 	st.markdown("---")
-	trns_content = st.text_area('Transcribed text', str, height=150, placeholder='Future location of transcribed text.')
+	trns_content = st.text_area('Transcribed text', str, height=150)
 	st.download_button(
 		label="Download transcribed text",
 		data=trns_content,
