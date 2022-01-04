@@ -119,7 +119,7 @@ elif page == 'Speech to Text Transcription':
 		open('audio.wav', 'wb').write(r.content)
 	
 	def clear_text():
-		if len(fileObject) = 0:
+		if len(fileObject) == 0:
 			st.session_state[str] = ""
 		
 	with open('audio.wav','rb') as audio_file:
