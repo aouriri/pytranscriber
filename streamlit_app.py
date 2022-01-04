@@ -140,7 +140,7 @@ elif page == 'Speech to Text Transcription':
 	trns_content = st.text_area('Transcribed text', transcribed_txt, height=150, placeholder="Future location of transcribed text.")
 	st.download_button(
 		label="Download transcribed text",
-		data=trns_content,
+		data=transcribed_txt,
 		mime='text/plain',
 	)
 	st.markdown("Text downloaded as .txt file.")
