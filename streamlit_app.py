@@ -111,11 +111,7 @@ elif page == 'Speech to Text Transcription':
 		   )
 
 	#fileObject = st.file_uploader("Please upload your file", type=["wav"])
-	placeholder = st.empty()
-	fileObject = placeholder.text_input("Input WAV audio file URL")
-	click_clear = st.button('Clear!', key=1)
-	if click_clear:
-		input = placeholder.text_input("Input WAV audio file URL", value='', key=1)
+	fileObject = st.text_input("Input WAV audio file URL")
 
 	#will add progress spinner later - with st.spinner('Transcription in Progress'):
 	if len(fileObject) != 0:
