@@ -132,9 +132,9 @@ elif page == 'Speech to Text Transcription':
 	str = ""
 	while bool(dic.get('results')):
 		str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
-		break
 	else:
 		pass
+	break
 
 	st.markdown("---")
 	trns_content = st.text_area('Transcribed text', str, height=150, placeholder="Future location of transcribed text.")
