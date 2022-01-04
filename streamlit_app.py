@@ -134,7 +134,9 @@ elif page == 'Speech to Text Transcription':
 			while bool(dic.get('results')):
 				str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 		#st.success('Done!')
-
+	else:
+		pass
+	
 	st.markdown("---")
 	trns_content = st.text_area('Transcribed text', str, height=150)
 	st.download_button(
@@ -143,12 +145,6 @@ elif page == 'Speech to Text Transcription':
 		mime='text/plain',
 	)
 	st.markdown("Text downloaded as .txt file.")
-	
-	placeholder = st.empty()
-	input = trns_content
-	click_clear = st.button('Clear!', key=1)
-	if click_clear:
-		input = placeholder.text_input(value='Future location of transcribed text.', key=1)
 	
 	st.markdown("---")
 
