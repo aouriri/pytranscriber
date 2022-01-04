@@ -132,7 +132,7 @@ elif page == 'Speech to Text Transcription':
 	str = ""
 	while bool(dic.get('results')):
 		str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
-	break
+		break
 	else:
 		pass
 
