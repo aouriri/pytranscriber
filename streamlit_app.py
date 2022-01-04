@@ -5,7 +5,6 @@ import os
 import json
 import pydub
 import pyperclip
-import PyQt5
 import urllib.request as url
 import streamlit as st
 import spacy
@@ -140,7 +139,7 @@ elif page == 'Speech to Text Transcription':
 	st.markdown("---")
 	trns_content = st.text_area('Transcribed text', str, height=150, placeholder="Future location of transcribed text.")
 	if st.button('Copy transcribed text'):
-		pyperclip.copy(trns_content)
+		pyperclip.copy(str)
 		
 	st.markdown("Text downloaded as .txt file.")
 	
