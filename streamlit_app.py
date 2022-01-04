@@ -129,7 +129,7 @@ elif page == 'Speech to Text Transcription':
 					indent=2))
 		
 		# Stores the transcribed text
-			str = ""
+			#str = ""
 		while bool(dic.get('results')):
 			str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 	else:
