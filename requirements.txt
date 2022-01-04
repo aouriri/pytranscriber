@@ -12,3 +12,4 @@ SpeechRecognition>=3.8.1
 urllib3
 ibm_watson
 pyperclip
+gtk
