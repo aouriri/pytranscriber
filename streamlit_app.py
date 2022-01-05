@@ -143,14 +143,6 @@ elif page == 'Speech to Text Transcription':
 		mime='text/plain',
 	)
 	st.markdown("Text downloaded as .txt file.")
-	
-	def clear_text():
-		st.session_state["wav"] = ""
-		st.session_state["trns"] = ""
-		
-	st.button("Clear!", on_click=clear_text)
-	#st.write(input)
-		
 	st.markdown("---")
 
 	with st.expander("Speech Recognition (Basic) Code"):
@@ -167,6 +159,12 @@ elif page == 'Speech to Text Transcription':
 		f.write(" ")
 		f.close()'''
 		st.code(code, language='python')
+		
+	def clear_text():
+		st.session_state["wav"] = ""
+		st.session_state["trns"] = ""
+		
+	st.button("Clear!", on_click=clear_text)
 
 else:
 	# Display the NER content here
