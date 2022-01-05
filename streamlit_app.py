@@ -146,7 +146,7 @@ elif page == 'Speech to Text Transcription':
 	
 	def clear_text():
 		st.session_state["wav"] = ""
-		st.session_state["trns"] = ""
+		st.session_state["trns"] = "placeholder"
 		
 	st.button("Clear!", on_click=clear_text)
 	#st.write(input)
