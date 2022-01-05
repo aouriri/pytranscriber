@@ -148,8 +148,8 @@ elif page == 'Speech to Text Transcription':
 		st.session_state["wav"] = ""
 		st.session_state["trns"] = placeholder
 		
-		st.button("Clear", on_click=clear_text)
-		st.write(input)
+	st.button("Clear!", on_click=clear_text)
+	#st.write(input)
 		
 	st.markdown("---")
 
