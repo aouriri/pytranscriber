@@ -164,7 +164,7 @@ elif page == 'Speech to Text Transcription':
 		st.session_state["wav"] = ""
 		st.session_state["trns"] = ""
 		
-	st.button("Clear!", on_click=clear_text)
+	st.button("Clear Fields!", on_click=clear_text)
 
 else:
 	# Display the NER content here
