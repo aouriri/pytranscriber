@@ -135,7 +135,7 @@ elif page == 'Speech to Text Transcription':
 		pass
 
 	st.markdown("---")
-	trns_content = st.text_area('Transcribed text', str, height=150, key="trns")
+	trns_content = st.text_area('Transcribed text', str, height=150, key="trns", placeholder="Future location of transcribed text.")
 	st.download_button(
 		label="Download transcribed text",
 		data=trns_content,
@@ -146,7 +146,7 @@ elif page == 'Speech to Text Transcription':
 	
 	def clear_text():
 		st.session_state["wav"] = ""
-		st.session_state["trns"] = placeholder="Future location of transcribed text."
+		st.session_state["trns"] = ""
 		
 	st.button("Clear!", on_click=clear_text)
 	#st.write(input)
