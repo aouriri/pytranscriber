@@ -10,6 +10,7 @@ import spacy
 import spacy_streamlit
 import threading
 import en_core_web_sm
+from PIL import Image
 from bs4 import BeautifulSoup
 from spacy import displacy
 from os import path
