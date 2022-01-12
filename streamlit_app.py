@@ -135,14 +135,13 @@ elif page == 'Speech to Text Transcription':
 		pass
 
 	st.markdown("---")
-	st.markdown(str)
-	#trns_content = st.text_area('Transcribed text', str, height=150, key="trns", placeholder="Future location of transcribed text.")
-	#st.download_button(
-	#	label="Download transcribed text",
-	#	data=trns_content,
-	#	file_name=None,
-	#	mime='text/plain',
-	#)
+	trns_content = st.text_area('Transcribed text', str, height=150, key="trns", placeholder="Future location of transcribed text.")
+	st.download_button(
+		label="Download transcribed text",
+		data=trns_content,
+		file_name=None,
+		mime='text/plain',
+	)
 	st.markdown("Text downloaded as .txt file.")
 	st.markdown("---")
 
