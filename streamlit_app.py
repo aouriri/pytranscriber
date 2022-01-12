@@ -10,7 +10,6 @@ import spacy
 import spacy_streamlit
 import threading
 import en_core_web_sm
-from PIL import Image
 from bs4 import BeautifulSoup
 from spacy import displacy
 from os import path
@@ -183,7 +182,7 @@ else:
 
 	spacy_streamlit.visualize_ner(
 		doc,
-		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC"],
+		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC", "LANGUAGE", "PRODUCT"],
 		show_table=False,
 		title="Person, Places and Other Things",
 		#displacy_options={
