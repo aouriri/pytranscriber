@@ -36,7 +36,6 @@ st.set_page_config(
 )
 image = Image.open('pytrnscrbr_logo.png')
 st.sidebar.image(image, use_column_width='always')
-st.sidebar.markdown("-----------------------------------")
 
 page = st.sidebar.selectbox('Select page',
   ['Audio Conversion','Speech to Text Transcription', 'Named Entity Recognition'])
