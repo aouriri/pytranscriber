@@ -33,7 +33,7 @@ st.set_page_config(
 		f"The text can the be copied to be used elsewhere **or** processed using [spaCy](https://github.com/explosion/spacy-streamlit). "
 		}
 )
-st.sidebar.markdown(["pytranscriber logo"](pytrnscrbr_logo.png))
+st.sidebar.image(pytrnscrbr_logo.png, caption="py transcriber")
 st.sidebar.markdown("-----------------------------------")
 
 page = st.sidebar.selectbox('Select page',
