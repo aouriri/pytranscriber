@@ -14,6 +14,7 @@ from PIL import Image
 from bs4 import BeautifulSoup
 from spacy import displacy
 from os import path
+from io import BytesIO
 from os.path import join, dirname
 from pydub import AudioSegment
 from ibm_watson import SpeechToTextV1
