@@ -135,8 +135,8 @@ elif page == 'Speech to Text Transcription':
 			str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 	elif len(fileObject) == 0:
 		if uploaded_wav is not None:
-			wav_bytes = uploaded_wav.getvalue()
-			with open(wav_bytes,'rb') as audio_file:
+			wav_bytes = uploaded_wav.read()
+			with wav_bytes as audio_file:
 				dic = json.loads(
 					json.dumps(
 						service.recognize(
