@@ -109,7 +109,8 @@ elif page == 'Speech to Text Transcription':
 		    "If you choose to use another recognition API, **please fork/update code to reflect that.** "
 		    "**The attaching of my IBM Cloud account is for demonstrative purposes.**"
 		   )
-
+	
+	uploaded_wav = st.file_uploader("Upload wav file", type=["wav"])
 	fileObject = st.text_input("Input WAV audio file URL", key="wav")
 	
 	if len(fileObject) != 0:
@@ -131,6 +132,19 @@ elif page == 'Speech to Text Transcription':
 		str = ""
 		while bool(dic.get('results')):
 			str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
+	#elif:
+	#	if uploaded_wav is not None:
+	#		bytes_data = uploaded_wav.getvalue()
+	#		with open(join(dirname(__file__), '../resources/speech.wav'),'rb') as audio_file:
+	#		dic = json.loads(
+	#			json.dumps(
+	#				service.recognize(
+	#					audio=audio_file,
+	#					content_type='audio/wav',
+	#					timestamps=False,
+	#					model='en-US_NarrowbandModel',
+	#					word_confidence=False).get_result(),
+	#				indent=2))
 	else:
 		pass
 
