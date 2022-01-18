@@ -111,7 +111,7 @@ elif page == 'Speech to Text Transcription':
 		   )
 	
 	uploaded_wav = st.file_uploader("Upload wav file", type=["wav"])
-	fileObject = st.text_input("Input WAV audio file URL", key="wav")
+	fileObject = st.text_input("or input WAV audio file URL", key="wav")
 	
 	if len(fileObject) != 0:
 		r = requests.get(fileObject, allow_redirects=True)
