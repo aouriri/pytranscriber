@@ -133,19 +133,19 @@ elif page == 'Speech to Text Transcription':
 		str = ""
 		while bool(dic.get('results')):
 			str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
-	elif len(fileObject) == 0:
-		if uploaded_wav is not None:
-			bytes_data = uploaded_wav.getvalue()
-			with open(bytes_data,'rb') as audio_file:
-				dic = json.loads(
-					json.dumps(
-						service.recognize(
-							audio=audio_file,
-							content_type='audio/wav',
-							timestamps=False,
-							model='en-US_NarrowbandModel',
-							word_confidence=False).get_result(),
-						indent=2))
+	#elif len(fileObject) == 0:
+	#	if uploaded_wav is not None:
+	#		bytes_data = uploaded_wav.getvalue()
+	#		with open(bytes_data,'rb') as audio_file:
+	#			dic = json.loads(
+	#				json.dumps(
+	#					service.recognize(
+	#						audio=audio_file,
+	#						content_type='audio/wav',
+	#						timestamps=False,
+	#						model='en-US_NarrowbandModel',
+	#						word_confidence=False).get_result(),
+	#					indent=2))
 	else:
 		pass
 
