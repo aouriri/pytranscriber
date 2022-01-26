@@ -129,23 +129,23 @@ elif page == 'Speech to Text Transcription':
 						word_confidence=False).get_result(),
 					indent=2))
 		
-		# Stores the transcribed text
+		# Stores the transcribed text -- move under code for file uploader
 		str = ""
 		while bool(dic.get('results')):
 			str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 	# find way to read uploaded file and pass file (as binary...) through transcription code; remove 'with' and add .read()?
-	#elif len(fileObject) == 0:
-	#	if uploaded_wav is not None:
-	#		with open('audio.wav','rb') as audio_file:
-	#			dic = json.loads(
-	#			json.dumps(
-	#				service.recognize(
-	#					audio=wav_bytes,
-	#					content_type='audio/wav',
-	#					timestamps=False,
-	#					model='en-US_NarrowbandModel',
-	#					word_confidence=False).get_result(),
-	#				indent=2))
+	elif len(fileObject) == 0:
+		if uploaded_wav is not None:
+			audio_file = uploaded_wav.getvalue()
+			dic = json.loads(
+				json.dumps(
+					service.recognize(
+						audio=audio_file,
+						content_type='audio/wav',
+						timestamps=False,
+						model='en-US_NarrowbandModel',
+						word_confidence=False).get_result(),
+					indent=2))
 	else:
 		pass
 
