@@ -147,10 +147,10 @@ elif page == 'Speech to Text Transcription':
 						model='en-US_NarrowbandModel',
 						word_confidence=False).get_result(),
 					indent=2))
-		# Stores the transcribed text
-		str = ""
-		while bool(dic.get('results')):
-			str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
+			# Stores the transcribed text
+			str = ""
+			while bool(dic.get('results')):
+				str = dic.get('results').pop().get('alternatives').pop().get('transcript')+str[:]
 	else:
 		pass
 
