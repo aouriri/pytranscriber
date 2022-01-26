@@ -114,6 +114,15 @@ elif page == 'Speech to Text Transcription':
 	uploaded_wav = st.file_uploader("Upload wav file", type=["wav"])
 	fileObject = st.text_input("or input WAV audio file URL", key="wav")
 	
+	# multi-type file acceptance from zakariachowdhury/clean-speech
+	#def convert_audio_file_to_segment(uploaded_wav):
+	#	if uploaded_wav is not None:
+	#		try:
+	#			if uploaded_wav.type == 'audio/mp3':
+	#				return AudioSegment.from_mp3(uploaded_wav)
+        #    			elif uploaded_file.type == 'audio/wav':
+        #        			return AudioSegment.from_wav(uploaded_file)
+	
 	if len(fileObject) != 0:
 		r = requests.get(fileObject, allow_redirects=True)
 		open('audio.wav', 'wb').write(r.content)
@@ -155,10 +164,7 @@ elif page == 'Speech to Text Transcription':
 		pass
 
 	st.markdown("---")
-	trns_content = st.text_area('Transcribed text', str, height=150, key="trns", placeholder="Future location of transcribed text.")
-	
-	if (str == ""):
-		print("Future location of transcribed text.")
+	trns_content = st.text_area('Transcribed text', str, height=150, key="trns", placeholder="Future home of transcribed text.")
 		
 	st.download_button(
 		label="Download transcribed text",
