@@ -135,7 +135,7 @@ elif page == 'Speech to Text Transcription':
 						content_type='audio/wav',
 						timestamps=False,
 						model='en-US_NarrowbandModel',
-						smart_formatting=True,
+						#smart_formatting=True,
 						word_confidence=False).get_result(),
 					indent=2))
 		
@@ -154,7 +154,7 @@ elif page == 'Speech to Text Transcription':
 						content_type='audio/wav',
 						timestamps=False,
 						model='en-US_NarrowbandModel',
-						smart_formatting=True,
+						#smart_formatting=True,
 						word_confidence=False).get_result(),
 					indent=2))
 			# Stores the transcribed text
