@@ -214,10 +214,9 @@ else:
 		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC", "LANGUAGE", "PRODUCT"],
 		show_table=False,
 		title="Person, Places and Other Things",
-		#displacy_options={
-		#	"kb_url_template": "https://www.wikidata.org/wiki/{}"
-		#},
-		#key="Default Colors"
+		displacy_options={
+			"kb_url_template": "https://www.wikidata.org/wiki/{}"
+		}
 	)
 
 	with st.expander("Entity label explanation"):
