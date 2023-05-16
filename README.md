@@ -1,4 +1,6 @@
 # pytranscriber
+**NOTE:** pytranscriber will be archived **May 16th** and no longer actively maintained. Feel free to go forth and fork (or copy certain parts)!
+
 mp3 to WAV converter SLASH speech to text transcriber in Streamlit.
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/aouriri/pytranscriber/main)
