@@ -3,7 +3,7 @@ import io
 import requests
 import os
 import json
-#import pydub
+import pydub
 import urllib.request as url
 import streamlit as st
 import spacy
