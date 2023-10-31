@@ -6,6 +6,7 @@ pandas
 spacy-streamlit
 spacyopentapioca
 soundfile
+en_core_web_sm
 pydub
 SpeechRecognition>=3.8.1
 urllib3
