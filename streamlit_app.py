@@ -129,7 +129,7 @@ elif page == 'Speech to Text Transcription':
 		with open('audio.wav','rb') as audio_file:
 			dic = json.loads(
 				json.dumps(
-					speech_to_text.recognize_with_websocket(
+					speech_to_text.recognize(
 						audio=audio_file,
 						content_type='audio/wav',
 						timestamps=False,
@@ -148,7 +148,7 @@ elif page == 'Speech to Text Transcription':
 			audio_file = uploaded_wav.getvalue()
 			dic = json.loads(
 				json.dumps(
-					speech_to_text.recognize_with_websocket(
+					speech_to_text.recognize(
 						audio=audio_file,
 						content_type='audio/wav',
 						timestamps=False,
