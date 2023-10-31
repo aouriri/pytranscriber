@@ -97,8 +97,8 @@ elif page == 'Speech to Text Transcription':
 	url = st.secrets["url"]
 
 	authenticator = IAMAuthenticator(apikey)
-	service = SpeechToTextV1(authenticator=authenticator)
-	service.set_service_url(url)
+	speech_to_text = SpeechToTextV1(authenticator=authenticator)
+	speech_to_text.set_service_url(url)
 
 	st.title('Speech to Text Transcription')
 	st.markdown("Speech to text using ```Python``` can be done 'out of the box' on shorter audio (limited to 50 requests per day) using Google's Web Speech API. "
@@ -129,7 +129,7 @@ elif page == 'Speech to Text Transcription':
 		with open('audio.wav','rb') as audio_file:
 			dic = json.loads(
 				json.dumps(
-					service.recognize(
+					speech_to_text.recognize(
 						audio=audio_file,
 						content_type='audio/wav',
 						timestamps=False,
@@ -148,7 +148,7 @@ elif page == 'Speech to Text Transcription':
 			audio_file = uploaded_wav.getvalue()
 			dic = json.loads(
 				json.dumps(
-					service.recognize(
+					speech_to_text.recognize(
 						audio=audio_file,
 						content_type='audio/wav',
 						timestamps=False,
