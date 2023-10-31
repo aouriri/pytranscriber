@@ -204,10 +204,19 @@ else:
 
 	DEFAULT_TEXT = """Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002."""
 
-	spacy_model = "en_core_web_sm"
-	nlp = spacy.load(spacy_model)
-	nlp.add_pipe("opentapioca")
-	nlp.to_disk("/tmp/en_core_web_sm_ot")
+	nlp = en_core_web_sm.load()
+	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
+	doc = spacy_streamlit.process_text("en_core_web_sm", text)
+
+	spacy_streamlit.visualize_ner(
+		doc,
+		labels=["PERSON", "DATE", "GPE", "ORG", "NORP", "LAW", "LOC", "LANGUAGE", "PRODUCT"],
+		show_table=False,
+		title="Person, Places and Other Things",
+		displacy_options={
+			"kb_url_template": "https://www.wikidata.org/wiki/{}"
+		}
+	)
 
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
 	doc = spacy_streamlit.process_text("/tmp/en_core_web_sm_ot", text)
