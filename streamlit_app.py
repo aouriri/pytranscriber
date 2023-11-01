@@ -206,7 +206,7 @@ else:
 
 	nlp = spacy.blank("en")
 	text = st.text_area("Text to analyze (Default text can be used, but I'm okay with change.)", DEFAULT_TEXT, height=200)
-	doc = spacy_streamlit.process_text(nlp, text)
+	doc = nlp.make_doc(text)
 
 	spacy_streamlit.visualize_ner(
 		doc,
